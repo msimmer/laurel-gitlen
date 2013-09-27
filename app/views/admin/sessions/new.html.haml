@@ -1,0 +1,10 @@
+= form_tag admin_sessions_path, method: :post, role: 'form' do
+	%fieldset
+		%legend Login
+		.form-group
+			= label_tag :username
+			= text_field_tag :username, nil, 'autocorrect' => 'off', 'autocapitalize' => 'off', class: 'form-control'
+		.form-group
+			= label_tag :password
+			= password_field_tag :password, nil, class: 'form-control'
+		%button.btn{:type => 'submit' } Submit

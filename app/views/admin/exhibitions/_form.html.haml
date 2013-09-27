@@ -1,0 +1,25 @@
+=form_for [:admin, @exhibition], html: {role: 'form'} do |f|
+	%fieldset
+		%legend
+			=@exhibition.new_record? ? "New Exhibtion" : @exhibition.name
+		.form-group
+			=f.label :name
+			=f.text_field :name, class: 'form-control'
+		.form-group
+			=f.label :description
+			=f.text_area :description, class: 'form-control'
+		.form-group
+			=f.label :begins, 'Date', :id => 'begins_label'
+			=f.date_select :begins, :order => [:month, :day, :year]
+		.form-group
+			=f.label :ends
+			=f.date_select :ends, :order => [:month, :day, :year]
+		.well.artist-checks.clearfix
+			%h4 Choose Artists
+			- Artist.all.each do |artist|
+				.checkbox
+					%label
+						= check_box_tag 'exhibition[artists_ids][]', artist.id, @exhibition.artists.include?(artist)
+						= artist.name
+		.form-group
+			=f.submit 'Save', class: 'btn btn-default'

@@ -1,0 +1,9 @@
+=form_for [:admin, @artist], html: {role: 'form'} do |f|
+	%fieldset
+		%legend
+			=@artist.new_record? ? "New Artist" : @artist.name
+		.form-group
+			=f.label :name
+			=f.text_field :name, class: 'form-control'
+		.form-group
+			=f.submit 'Save', class: 'btn btn-default'

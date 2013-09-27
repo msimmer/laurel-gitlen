@@ -1,0 +1,8 @@
+.row
+	.col-lg-3.col-md-3
+		%ul#artists.list-unstyled
+			- @artists.each do |artist|
+				%li=link_to artist.name, artist_url(artist), id: "#{artist.name.gsub(/\s+/, "")}", class: "artist-link"
+#random-imgs
+	-@artists.each do |artist|
+		=image_tag artist.pieces.first.image.url(:thumb), class: "#{artist.name.gsub(/\s+/, "")}-img" unless artist.pieces.blank?

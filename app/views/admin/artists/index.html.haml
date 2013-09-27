@@ -1,0 +1,11 @@
+.navbar.navbar-default
+	.container
+		=link_to 'Add Artist', new_admin_artist_url, :class => 'btn btn-default navbar-btn btn-small'
+
+- @artists.each do |artist|
+	.panel.panel-default
+		.panel-heading
+			=artist.name
+		.panel-body
+			%ul.list-inline
+				%li=link_to 'Edit', admin_artist_url(artist)

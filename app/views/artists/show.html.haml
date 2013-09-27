@@ -1,0 +1,19 @@
+#artist.row
+	.col-lg-3#artist-info
+		%p
+			=@artist.name
+			%br
+			&mdash;
+			%br
+			=link_to 'Selected Work', '#'
+			%br
+			=link_to 'Exhibition', '#'
+			%br
+			=link_to 'Press', '#'
+			%br
+			=link_to 'CV', '#'
+	.col-lg-9
+		- @pieces.each do |piece|
+			=image_tag piece.image.url(:medium)
+			=piece.name
+			=piece.description

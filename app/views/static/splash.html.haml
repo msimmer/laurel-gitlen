@@ -1,0 +1,11 @@
+#splash
+	%h2.text-center
+		%strong=raw @exhibition.begins.strftime("%m.%d&mdash;")
+		%br
+		%strong=@exhibition.ends.strftime("%m.%d.%y")
+	%h2.text-center
+		=@exhibition.name
+		-unless @exhibition.artists.blank?
+			%br
+			&mdash;
+	%h2.text-center=raw @exhibition.artists.map{ |a| a.name }.join('<br/>')

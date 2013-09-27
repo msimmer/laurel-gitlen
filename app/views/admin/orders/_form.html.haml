@@ -1,0 +1,5 @@
+=form_for [@exhibition], url: admin_exhibition_orders_url(@exhibition), method: 'post', html: {style: 'display:inline;', data: {remote: 'true', id: 'order-form'}} do |f|
+  = hidden_field_tag "order_string", '', id: 'order-field'
+  = hidden_field_tag "order", @order
+  
+  = f.submit 'Save Order', class: 'btn btn-success navbar-btn btn-small'

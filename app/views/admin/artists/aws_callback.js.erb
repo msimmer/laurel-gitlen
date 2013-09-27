@@ -1,0 +1,11 @@
+var form = $('#file-<%= params[:unique_id] %>');
+
+if(form.size()){
+	<%- params.keys.each do |key| -%>
+		form.find('.<%= key.to_s %>').val('<%= params[key] %>');
+	<%- end -%>
+
+	form.find('input[name="authenticity_token"]').val('<%= form_authenticity_token %>');
+
+	$.post(form.attr('action'), form.serialize(), null, 'script');
+}

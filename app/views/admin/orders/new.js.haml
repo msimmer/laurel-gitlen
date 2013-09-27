@@ -1,0 +1,12 @@
+- if @order == 'works'
+	:plain
+		$('body').addClass('sorting');
+		
+		$('#work-list').sortable({
+			stop: function( event, ui ) {
+				var order = $('#work-list').sortable('toArray', {attribute: 'data-record-id'}).join(',');
+				$('#order-field').val(order);
+			}
+		});
+		
+		$("#{j render 'form'}").insertAfter('.works-order-link');

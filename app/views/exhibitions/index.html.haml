@@ -1,0 +1,14 @@
+#exhibitions.row
+	.col-lg-8
+		- @exhibitions_by_year.each do |year, exhibitions|
+			.row
+				.col-lg-1
+					.year=year
+				.col-lg-11
+					-exhibitions.each do |exhibition|
+						.exhibition
+							.exhibition-info
+								%span=exhibition.name
+								%span=exhibition.artists.map {|a| a.name}.join(', ')
+								%span.text-right="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
+							=render 'images', exhibition: exhibition

@@ -1,0 +1,166 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+
+@font-face {
+	font-family: 'Pressura';
+	src:url('GT-Pressura-Mono-Regular-Trial.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+	font-family: 'Relative';
+	src:url('RelativeLG-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Exterior
+**********************/
+body.exterior{
+	font-family:'Relative', Helvetica, sans-serif;
+	h1,h2,h3,h4,h5,p,li,a{
+		font-family:'Relative', Helvetica, sans-serif;
+	}
+	#splash{
+		margin-top:200px;
+	}
+	h2{
+		font-size:36px;
+	}
+	.container{
+		margin-left:20px;
+		height:100%;
+	}
+	a{
+		color:black !important;
+	}
+	header{
+		margin-top:20px;
+		h1{
+			font-size:20px;
+			line-height:20px;
+			margin:0;
+			display:inline-block;
+			text-transform:uppercase;
+			font-weight:bold;
+		}
+		nav{
+			ul{
+				li{
+					font-family: 'Pressura', monospace;
+					font-size:14px;
+					font-weight:100;
+					padding:0 24px;
+					
+					a{
+						&:hover{
+							font-style:italic; 
+							text-decoration:none;
+						}
+						&.active{
+							font-style:italic; 
+						}
+					}
+					
+				}
+				li:first-child{padding-left:0}
+				li:last-child{padding-right:0}
+			}
+			
+		}
+	}
+	
+	#contact{
+		margin-top:60px;
+	}
+	
+	.year{
+		font-size:10px;
+	}
+	.exhibition{
+		border-top:1px solid black;
+		font-size:12px;
+		span{
+			width:33%;
+			display:inline-block;
+		}
+	}
+	.exhibition-images{
+		height:200px;
+		margin:10px 0;
+		overflow:auto;
+		overflow-y:hidden;
+		white-space:nowrap;
+		display:none;
+		img{
+			margin-right:10px;
+		}
+	}
+	
+	#artists{
+		font-size:18px;
+		margin-top:200px;
+	}
+	#artist-info{
+		margin-top:300px;
+	}
+	#exhibitions{
+		margin-top:40px;
+	}
+}
+
+/* Admin
+**********************/
+body.admin{
+	padding-top:70px;
+}
+.upload{
+	border:none;
+	width:auto;
+}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 36px;
+  direction: ltr;
+  cursor: pointer;
+}
+.work-frame{
+	padding:10px;
+	background:#efefef;
+	margin-right:10px;
+	margin-bottom:10px;
+	float:left;
+}
+.artist-checks .checkbox{
+	float:left;
+	padding:10px;
+	margin:10px;
+}
+body.sorting .work-frame{
+	box-shadow:2px 2px 8px 2px #666;
+	cursor:move;
+}
+
