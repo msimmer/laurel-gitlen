@@ -3,7 +3,7 @@ class Piece < ActiveRecord::Base
   has_and_belongs_to_many :exhibitions, join_table: :displays
   
   before_save :attach_artist, unless: Proc.new{|a| a.artist_name.blank?} 
-  after_save :attach_image, if: :upload_url_changed?
+  after_create :attach_image, if: :upload_url_changed?
   
   attr_accessor :artist_name
   
