@@ -1,6 +1,10 @@
 $('<%=j render "/modal_wrapper", :title => "Add New Works", :body => "form", :action => "Start Uploads" %>').appendTo('body');
 
-$('#modal-form').modal('show');
+$('#modal-form').modal('show').
+	on('hidden.bs.modal', function(){
+	$(this).remove();
+});
+
 
 $('#s3-uploader').S3Uploader({
 	click_submit_target: $('#modal-form-submit'),
