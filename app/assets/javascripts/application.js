@@ -33,7 +33,3 @@ $(document).on('mouseover', '.artist-link', function(){
 	
 	return false;
 });
-
-$(document).on('page:load', function(){
-		$('#slides').carousel('cycle');
-});

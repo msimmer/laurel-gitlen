@@ -13,15 +13,17 @@ class Admin::ExhibitionsController < ApplicationController
   end
   
   def edit
-    @order = params[:order]
   end
   
   def update
+    @exhibition.attributes = exhibition_params
+    @exhibition.save_with_artists
+    @artists = @exhibition.artists
   end
   
   def create
     @exhibition = Exhibition.new(exhibition_params)
-    if @exhibition.save
+    if @exhibition.save_with_artists
       redirect_to admin_exhibition_url(@exhibition)
     else
       render :new

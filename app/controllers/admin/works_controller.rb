@@ -8,6 +8,20 @@ class Admin::WorksController < ApplicationController
     @piece = @artist.pieces.create(piece_params)
   end
   
+  def edit
+    @piece = @artist.pieces.find(params[:id])
+  end
+  
+  def update
+    @piece = @artist.pieces.find(params[:id])
+    @piece.update_attributes(piece_params)
+  end
+  
+  def destroy
+    @piece = @artist.pieces.find(params[:id])
+    @piece.destroy
+  end
+  
   protected
   def piece_params
     params.require(:piece).permit(:name, :description, :upload_url, :upload_key)

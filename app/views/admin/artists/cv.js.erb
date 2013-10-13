@@ -1,0 +1,11 @@
+$('<%=j render "/modal_wrapper", :title => "Edit Work Details", :body => "cv_upload", :action => "Save" %>').appendTo('body');
+
+$('#modal-form').modal('show').
+	on('hidden.bs.modal', function(){
+	$(this).remove();
+});
+
+$('#s3-uploader').S3Uploader({
+	click_submit_target: $('#modal-form-submit'),
+	remove_completed_progress_bar: false
+});

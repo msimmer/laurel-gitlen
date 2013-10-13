@@ -1,12 +1,4 @@
-.well.well-lg
-	%h3
-		=@exhibition.name
-		%small=link_to 'Edit Details', edit_admin_exhibition_url(@exhibition)
-	%p
-		%strong="#{@exhibition.begins.strftime('%d.%m.%Y')}–#{@exhibition.ends.strftime('%d.%m.%Y')}"
-	%p=@exhibition.description
-	%p=raw @artists.map { |a| a.name }.join(" &mdash; ")
-
+=render "summary"
 #works
 	.navbar.navbar-default
 		.container
@@ -15,7 +7,4 @@
 	#work-list
 		-unless @exhibition.pieces.blank?
 			- @exhibition.piece_order.each do |id|
-				- work = @exhibition.pieces.find(id)
-				.work-frame{id: "work_#{work.id}", data: {'record-id' => work.id}}
-					%p=work.name
-					%p=image_tag work.image.url(:thumb)
+				=render "admin/displays/single", piece: @exhibition.pieces.find(id)

@@ -1,14 +1,8 @@
-.well.well-lg
-	%h3
-		=@artist.name
-		%small=link_to 'Edit Details', edit_admin_artist_url(@artist)
-
+=render "summary"
 #works
 	.navbar.navbar-default
 		.container
 			=link_to 'Add Works', new_admin_artist_work_url(@artist), class: 'btn btn-default navbar-btn btn-small', data: {remote: 'true'}
 	#work-list
 	- @artist.pieces.each do |work|
-		.work-frame{id: "work_#{work.id}", data: {'record-id' => work.id}}
-			%p=work.name
-			%p=image_tag work.image.url(:thumb)
+		=render "admin/works/single", piece: work

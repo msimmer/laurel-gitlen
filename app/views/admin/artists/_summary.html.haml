@@ -1,0 +1,8 @@
+#artist-summary.well.well-lg
+	%h3
+		=@artist.name
+		%small=link_to 'Edit Details', edit_admin_artist_url(@artist), data: {remote: "true"}
+	%p
+		%strong= @artist.cv_url.blank? ? "No CV" : link_to( "Preview CV", @artist.cv_url, target: "_blank")
+		|
+		=link_to "Upload CV", edit_admin_artist_url(@artist, cv: "true"), data: {remote: "true"}

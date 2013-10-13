@@ -1,25 +1,19 @@
-.well
-	Choose as many as you'd like. Update their information before clicking "Start Uploads."
-%p
-	= s3_uploader_form callback_url: aws_callback_admin_exhibition_url(@exhibition), callback_param: "piece[upload_url]", id: "s3-uploader" do
-		%span.btn.btn-default.fileinput-button
-			%span Add Files...
-			= file_field_tag :file, multiple: true
-
-%script#template-upload{type: "text/x-tmpl"}
-	= form_for Piece.new, url: admin_exhibition_displays_url(@exhibition), :html => {:id => "file-{%=o.unique_id%}", :class => "upload"} do |f| 
-		= f.hidden_field :upload_url, :class => 'url' 
-		= f.hidden_field :upload_key, :class => 'unique_id' 
-		
-		.control-group
-			= f.label :name 
-			= f.text_field :name, class: 'form-control'
-		.control-group
-			=f.label :description
-			=f.text_area :description, class: 'form-control'
-		.control-group
-			=f.label :artist_name
-			=f.text_field :artist_name, class: 'form-control'
-		%p
-			.progress
-				.progress-bar.bar{style: "width: 0%", role: 'progress-bar'}
+=form_for @piece, url: admin_exhibition_display_url(@exhibition, @piece), html: {class: "form", data:{remote: "true"}} do |f|
+	.control-group
+		=f.label :artist_name
+		=f.text_field :artist_name, class: 'form-control'
+	.control-group
+		= f.label :title 
+		= f.text_field :title, class: 'form-control'
+	.control-group
+		=f.label :description
+		=f.text_area :description, class: 'form-control'
+	.control-group
+		=f.label :year
+		=f.select :year, (1950..Date.today.year).to_a.reverse, {}, {class: 'form-control'}
+	.control-group
+		=f.label :dimensions
+		=f.text_field :dimensions, class: 'form-control'
+	.control-group
+		=f.label :edition_details
+		=f.text_area :edition_details, class: 'form-control'

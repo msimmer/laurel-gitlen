@@ -1,12 +1,11 @@
 class Admin::DisplaysController < ApplicationController
   layout 'admin'
+  before_filter :get_exhibition
   
   def new
-    @exhibition = Exhibition.find(params[:exhibition_id])
   end
   
   def index
-    @exhibition = Exhibition.find(params[:exhibition_id])
     @pieces = @exhibition.pieces
   end
   
@@ -19,8 +18,28 @@ class Admin::DisplaysController < ApplicationController
     @exhibition.save
   end
   
+  def edit
+    @piece = @exhibition.pieces.find(params[:id])
+  end
+  
+  def update
+    @piece = @exhibition.pieces.find(params[:id])
+    @piece.update_attributes(piece_params)
+  end
+  
+  def destroy
+    @piece = @exhibition.pieces.find(params[:id])
+    @piece.destroy
+    @exhibition.piece_order.delete(@piece.id) 
+    @exhibition.save
+  end
+  
   protected
   def piece_params
     params.require(:piece).permit(:name, :description, :artist_name, :upload_url, :upload_key)
+  end
+  
+  def get_exhibition
+    @exhibition = Exhibition.find(params[:exhibition_id])
   end
 end

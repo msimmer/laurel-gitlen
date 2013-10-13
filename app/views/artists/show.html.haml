@@ -1,19 +1,22 @@
-#artist.row
-	.col-lg-3#artist-info
-		%p
-			=@artist.name
-			%br
-			&mdash;
-			%br
-			=link_to 'Selected Work', '#'
-			%br
-			=link_to 'Exhibition', '#'
-			%br
-			=link_to 'Press', '#'
-			%br
-			=link_to 'CV', '#'
-	.col-lg-9
-		- @pieces.each do |piece|
-			=image_tag piece.image.url(:medium)
-			=piece.name
-			=piece.description
+#artist
+	#artist-info
+		%h3=@artist.name
+		%ul.list-unstyled
+			%li=link_to 'Selected Work', '#'
+			%li=link_to 'Exhibition', '#'
+			%li=link_to 'Press', '#'
+			%li=link_to 'CV', '#'
+	#artist-slides
+		#cycle
+			- @pieces.each do |piece|
+				.slide
+					=image_tag piece.image.url(:medium)
+					%p.text-center=piece.title
+					%p.text-center=piece.description
+
+:javascript
+	$('#cycle').cycle({
+		prev: $('#prev'),
+		next: $('#next')
+	});
+	

@@ -1,0 +1,8 @@
+#work-summary.well.well-lg
+	%h3
+		=@exhibition.name
+		%small=link_to 'Edit Details', edit_admin_exhibition_url(@exhibition), data: {remote: "true"}
+	%p
+		%strong="#{@exhibition.begins.strftime('%d.%m.%Y')}–#{@exhibition.ends.strftime('%d.%m.%Y')}"
+	%p=@exhibition.description
+	%p=raw @artists.map { |a| a.name }.join(" &mdash; ")

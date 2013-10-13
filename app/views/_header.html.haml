@@ -1,11 +1,9 @@
-%header.row
-	.col-lg-4.col-md-4
-		%h1
-			=link_to 'Laurel Gitlen', '/'
-	.col-lg-4.col-md-4.text-center
-		%nav
-			%ul.list-unstyled.list-inline
-				%li=link_to 'Artists', '/artists', class: controller_name == 'artists' ? "active" : ""
-				%li=link_to 'Exhibitions', '/exhibitions', class: controller_name == 'exhibitions' ? "active" : ""
-				%li=link_to 'News', '#'
-				%li=link_to 'Contact', '/contact', class: current_page?('/contact') ? "active" : ""
+%header
+	%h1
+		=link_to 'Laurel Gitlen', '/'
+	%nav
+		%ul.list-unstyled.list-inline
+			%li=link_to 'Artists', '/artists', class: controller_name == 'artists' ? "active" : ""
+			%li=link_to 'Exhibitions', '/exhibitions', class: controller_name == 'exhibitions' ? "active" : ""
+			%li=link_to 'News', '#'
+			%li=link_to 'Contact', '/contact', class: current_page?('/contact') ? "active" : ""

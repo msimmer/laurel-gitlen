@@ -1,7 +1,5 @@
-=form_for [:admin, @exhibition], html: {role: 'form'} do |f|
+=form_for [:admin, @exhibition], html: {role: 'form'}, data: {remote: !@exhibition.new_record?} do |f|
 	%fieldset
-		%legend
-			=@exhibition.new_record? ? "New Exhibtion" : @exhibition.name
 		.form-group
 			=f.label :name
 			=f.text_field :name, class: 'form-control'
@@ -21,5 +19,6 @@
 					%label
 						= check_box_tag 'exhibition[artists_ids][]', artist.id, @exhibition.artists.include?(artist)
 						= artist.name
-		.form-group
-			=f.submit 'Save', class: 'btn btn-default'
+		-if @exhibition.new_record?
+			.form-group
+				=f.submit 'Save', class: 'btn btn-default'
