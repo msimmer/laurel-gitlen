@@ -25,14 +25,19 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+	font-family: 'Relative-Medium';
+	src:url('RelativeLG-Regular.otf');
+  font-weight: 300;
+}
 
 
 /* Exterior
 **********************/
-body, html{ height:100%; width:100%;}
 #main{
 	width:100%;
 	min-width:960px;
+	min-height:720px;
 	position:relative;
 }
 #inner{
@@ -106,12 +111,14 @@ body.exterior{
 			min-width:960px !important;
 			position:fixed;
 			height:50px;
-
+			left:0;
 			&:nth-child(2){
 				top:50%;
 				margin-top:-25px;
 			}
 			&:first-child{
+				font-family:"Relative-Medium";
+			  font-weight: 300;
 				bottom:50%;
 				margin-bottom:75px;
 			}
@@ -162,15 +169,26 @@ body.exterior{
 		padding-top:200px;
 	}
 	#artist-info{
-		padding-top:300px;
+		position:absolute;
+		top:300px;
 		width:25%;
-		float:left;
+		z-index:99999;
+	}
+	#prev{
+		position:absolute;
+		top:250px;
+		z-index:50;
+	}
+	#next{
+		position:absolute;
+		top:250px;
+		right:50px;
+		z-index:50;
 	}
 	#artist-slides{
-		width:75%;
-		float:left;
 		.slide{
 			text-align:center;
+			width:100%;
 		}
 	}
 	#exhibitions{
@@ -184,6 +202,23 @@ body.exterior{
 #random-images img{
 	display:none;
 	position:absolute;
+}
+
+#gallery{
+	position:fixed;
+	background:white;
+	top:50px;
+	padding-top:50px;
+	width:100%;
+	border-top:1px dotted black;
+	height:100%;
+	#prev{
+		left:50px;
+	}
+	.close{
+		margin-right: 50px;
+		margin-top: -37px;
+	}
 }
 
 /* Admin

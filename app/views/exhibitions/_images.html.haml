@@ -1,3 +1,3 @@
 .exhibition-images
 	-unless exhibition.pieces.blank?
-		=raw exhibition.piece_order.map { |id| image_tag(exhibition.pieces.find(id).image.url(:thumb)) }.join("")
+		=raw exhibition.piece_order.map { |id| link_to( image_tag(exhibition.pieces.find(id).image.url(:thumb)), exhibition_url(exhibition), data: { remote: true} )}.join("")

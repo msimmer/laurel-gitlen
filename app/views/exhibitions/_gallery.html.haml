@@ -1,11 +1,5 @@
-#artist
-	#artist-info
-		%h3=@artist.name
-		%ul.list-unstyled
-			%li=link_to 'Selected Work', '#'
-			%li=link_to 'Exhibition', '#'
-			%li=link_to 'Press', '#'
-			%li=link_to 'CV', '#'
+#gallery
+	=button_tag 'CLOSE', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#artist-slides
 		- @pieces.each do |piece|
 			.slide
@@ -14,10 +8,3 @@
 					=content_tag(:p, "#{attr.titleize}: #{piece.send(attr)}", class: "text-center") unless piece.send(attr).blank?
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
-
-:javascript
-	$('#artist-slides').cycle({
-		prev: $('#prev'),
-		next: $('#next'),
-		timeout: 0
-	});

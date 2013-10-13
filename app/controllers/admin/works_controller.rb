@@ -24,7 +24,7 @@ class Admin::WorksController < ApplicationController
   
   protected
   def piece_params
-    params.require(:piece).permit(:name, :description, :upload_url, :upload_key)
+    params.require(:piece).permit(:title, :description, :artist_name, :year, :dimensions, :edition_details, :upload_url, :upload_key)
   end
   
   def get_artist

@@ -1,10 +1,10 @@
 #splash
 	%h2#splash-date.text-center
-		%strong=raw @exhibition.begins.strftime("%m.%d&mdash;")
+		=raw @exhibition.begins.strftime("%m.%d&mdash;")
 		%br
-		%strong=@exhibition.ends.strftime("%m.%d.%y")
+		=@exhibition.ends.strftime("%m.%d.%y")
 	%h2#splash-title.text-center
-		=link_to @exhibition.name, exhibition_url(@exhibition)
+		=link_to @exhibition.name, exhibition_url(@exhibition), data: {remote: true}
 		-unless @exhibition.artists.blank?
 			%br
 			&mdash;

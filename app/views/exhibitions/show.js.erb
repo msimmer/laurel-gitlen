@@ -1,0 +1,13 @@
+$('<%=j render "gallery" %>').appendTo("body");
+
+$('#artist-slides').cycle({
+	prev: $('#prev'),
+	next: $('#next'),
+	timeout: 0
+});
+
+$('.close').click(function(){
+	$("#gallery").fadeOut(function(){
+		$(this).remove();
+	});
+});

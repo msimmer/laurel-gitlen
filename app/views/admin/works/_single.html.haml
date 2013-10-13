@@ -1,6 +1,0 @@
-.piece-frame{id: "work_#{piece.id}", data: {'record-id' => piece.id}}
-	%ul.list-inline.list-unstyled
-		%li=link_to "Edit", edit_admin_artist_work_url(@artist, piece), data: {remote: true}
-		%li=link_to "Delete", admin_artist_work_url(@artist, piece), data: {method: "delete", remote: "true", confirm: "Are you sure?"}
-	%p=piece.title
-	%p=image_tag piece.image.url(:thumb)
