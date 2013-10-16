@@ -1,6 +1,6 @@
 #gallery
 	=button_tag 'CLOSE', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
-	#artist-slides
+	#gallery-slides
 		- @pieces.each do |piece|
 			.slide
 				=image_tag piece.image.url(:medium)

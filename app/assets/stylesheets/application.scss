@@ -91,7 +91,7 @@ body.exterior{
 			left:0;
 			min-width:960px;
 			ul{
-				width:360px;
+				width:390px;
 				margin:auto;
 				z-index:99;
 				li{
@@ -199,7 +199,8 @@ body.exterior{
 		right:50px;
 		z-index:50;
 	}
-	#artist-slides{
+	#artist-slides,
+	#gallery-slides{
 		.slide{
 			text-align:center;
 			width:100%;
@@ -225,6 +226,7 @@ body.exterior{
 }
 
 #gallery{
+	z-index:1050;
 	position:fixed;
 	background:white;
 	top:50px;
