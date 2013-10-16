@@ -11,26 +11,34 @@
  *= require_self
  */
 
-
 @font-face {
-	font-family: 'Pressura';
-	src:url('GT-Pressura-Mono-Regular-Trial.otf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-	font-family: 'Relative';
-	src:url('RelativeLG-Regular.otf');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'gt-pressura-mono-regular';
+    src: url(font-path('gt-pressura-mono-regular.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('gt-pressura-mono-regular.woff')) format('woff'), 
+         url(font-path('gt-pressura-mono-regular.ttf'))  format('truetype'),
+         url(font-path('gt-pressura-mono-regular.svg') + "#gt-pressura-mono-regular") format('svg');
 }
 @font-face {
-	font-family: 'Relative-Medium';
-	src:url('RelativeLG-Regular.otf');
-  font-weight: 300;
+    font-family: 'relativelg-medium';
+    src: url(font-path('relativelg-medium.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('relativelg-medium.woff')) format('woff'), 
+         url(font-path('relativelg-medium.ttf'))  format('truetype'),
+         url(font-path('relativelg-medium.svg') + "#relativelg-medium") format('svg');
 }
-
+@font-face {
+    font-family: 'relativelg-regular';
+    src: url(font-path('relativelg-regular.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('relativelg-regular.woff')) format('woff'), 
+         url(font-path('relativelg-regular.ttf'))  format('truetype'),
+         url(font-path('relativelg-regular.svg') + "#relativelg-regular") format('svg');
+}
+@font-face {
+    font-family: 'relativelg-medium-italic';
+    src: url(font-path('relativelg-medium-italic.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('relativelg-medium-italic.woff')) format('woff'), 
+         url(font-path('relativelg-medium-italic.ttf'))  format('truetype'),
+         url(font-path('relativelg-medium-italic.svg') + "#relativelg-medium") format('svg');
+}
 
 /* Exterior
 **********************/
@@ -59,9 +67,14 @@ body.exterior{
 		color:black !important;
 	}
 	header{
-		position:fixed;
-		top:0;
-		padding-top:20px;
+		position: fixed;
+		top: 0;
+		padding: 20px 0;
+		height: 60px;
+		width: 100%;
+		background: white;
+		z-index: 1049;
+		
 		h1{
 			font-size:20px;
 			line-height:20px;
@@ -82,12 +95,12 @@ body.exterior{
 				margin:auto;
 				z-index:99;
 				li{
-					font-family: 'Pressura', monospace;
 					font-size:14px;
 					font-weight:100;
-					padding:0 24px;
+					padding:0 23px;
 					
 					a{
+						font-family: 'gt-pressura-mono-regular', monospace;
 						&:hover{
 							font-style:italic; 
 							text-decoration:none;
@@ -117,7 +130,7 @@ body.exterior{
 				margin-top:-25px;
 			}
 			&:first-child{
-				font-family:"Relative-Medium";
+				font-family:"relativelg-medium";
 			  font-weight: 300;
 				bottom:50%;
 				margin-bottom:75px;
@@ -129,6 +142,7 @@ body.exterior{
 		}
 	}
 	footer{
+		font-family: 'gt-pressura-mono-regular', monospace;
 		position:fixed;
 		bottom:0;
 		width:100%;
@@ -189,6 +203,12 @@ body.exterior{
 		.slide{
 			text-align:center;
 			width:100%;
+		}
+	}
+	#artist-exhibitions{
+		display:none;
+		a{
+			color:#999 !important;
 		}
 	}
 	#exhibitions{
@@ -252,6 +272,12 @@ body.admin{
 	margin-right:10px;
 	margin-bottom:10px;
 	float:left;
+	position:relative;
+	ul{
+		position:absolute;
+		bottom:3px;
+		right:10px;
+	}
 }
 .artist-checks .checkbox{
 	float:left;

@@ -8,10 +8,10 @@
 			=f.text_area :description, class: 'form-control'
 		.form-group
 			=f.label :begins, 'Date', :id => 'begins_label'
-			=f.date_select :begins, :order => [:month, :day, :year]
+			=f.date_select :begins, {order: [:month, :day, :year], start_year: 1980}
 		.form-group
 			=f.label :ends
-			=f.date_select :ends, :order => [:month, :day, :year]
+			=f.date_select :ends, {order: [:month, :day, :year], start_year: 1980}
 		.well.artist-checks.clearfix
 			%h4 Choose Artists
 			- Artist.all.each do |artist|

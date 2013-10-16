@@ -3,7 +3,13 @@
 		%h3=@artist.name
 		%ul.list-unstyled
 			%li=link_to 'Selected Work', '#'
-			%li=link_to 'Exhibition', '#'
+			-unless @artist.exhibitions.blank? 
+				%li=link_to 'Exhibitions', '#', class: "artist-exhibitions-link"
+				%li
+					%ul#artist-exhibitions.list-unstyled
+						-@artist.exhibitions.each do |exhibition|
+							%li=link_to exhibition.name, exhibition_url(exhibition), data: {remote: true}
+
 			%li=link_to 'Press', '#'
 			%li=link_to 'CV', '#'
 	#artist-slides

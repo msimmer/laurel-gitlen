@@ -1,6 +1,7 @@
-.piece-frame{id: "display_#{piece.id}", data: {'record-id' => piece.id}}
+.work-frame{id: "display_#{piece.id}", data: {'record-id' => piece.id}}
+	%p=piece.title
+	=image_tag piece.image.url(:thumb)
 	%ul.list-inline.list-unstyled
 		%li=link_to "Edit", edit_admin_exhibition_display_url(@exhibition, piece), data: {remote: true}
 		%li=link_to "Delete", admin_exhibition_display_url(@exhibition, piece), data: {method: "delete", remote: "true", confirm: "Are you sure?"}
-	%p=piece.title
-	%p=image_tag piece.image.url(:thumb)
+	

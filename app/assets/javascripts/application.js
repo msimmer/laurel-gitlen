@@ -33,3 +33,8 @@ $(document).on('mouseover', '.artist-link', function(){
 	
 	return false;
 });
+
+$(document).on('click', '.artist-exhibitions-link', function(){
+	$('#artist-exhibitions').toggle();
+	return false;
+});
