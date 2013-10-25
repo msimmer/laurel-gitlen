@@ -38,3 +38,22 @@ $(document).on('click', '.artist-exhibitions-link', function(){
 	$('#artist-exhibitions').toggle();
 	return false;
 });
+
+$(document).on('ajax:before', 'form', function(event, xhr, settings) {
+	$(this).
+		attr("disabled", "disabled").
+		addClass("disabled").
+		addClass("working");
+	
+	$('#modal-form').addClass("working");
+			
+});
+
+$(document).on('ajax:complete', 'form', function(event, xhr, settings) {
+	$(this).
+		removeAttr("disabled").
+		removeClass("disabled").
+		removeClass("working");
+	
+	$("#modal-form").removeClass("working");
+});

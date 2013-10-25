@@ -1,11 +1,11 @@
 .navbar.navbar-default
 	.container
 		=link_to 'Create Exhibition', new_admin_exhibition_url, :class => 'btn btn-default navbar-btn btn-small'
-
 - @exhibitions.each do |ex|
-	.panel.panel-default
+	.panel.panel-default{id: "exhibition-panel-#{ex.id}"}
 		.panel-heading
 			=ex.name
 		.panel-body
 			%ul.list-inline
 				%li=link_to 'Edit', admin_exhibition_url(ex)
+				%li=link_to "Delete", admin_exhibition_url(ex), data: {method: "delete", remote: "true", confirm: "Are you sure you want to delete #{ex.name}?"}

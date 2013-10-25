@@ -1,6 +1,6 @@
 class Admin::ExhibitionsController < ApplicationController
   before_filter :require_login
-  before_filter :get_exhibition, only: [:edit, :show, :update]
+  before_filter :get_exhibition, only: [:edit, :show, :update, :destroy]
   
   layout 'admin'
   
@@ -23,11 +23,7 @@ class Admin::ExhibitionsController < ApplicationController
   
   def create
     @exhibition = Exhibition.new(exhibition_params)
-    if @exhibition.save_with_artists
-      redirect_to admin_exhibition_url(@exhibition)
-    else
-      render :new
-    end
+    @exhibition.save_with_artists
   end
   
   def show
@@ -36,6 +32,10 @@ class Admin::ExhibitionsController < ApplicationController
   end
   
   def aws_callback
+  end
+  
+  def destroy
+    @exhibition.destroy
   end
   
   protected
