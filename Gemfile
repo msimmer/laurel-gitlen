@@ -44,14 +44,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-gem 'unicorn'
-
-# My favorite auth library
-gem 'sorcery'
+gem 'unicorn' # Use unicorn as the app server
+gem 'sorcery' # Favorite auth library
+gem 'newrelic_rpm' # New Relic for reporting
 
 # Handle uplaods to AWS and background processing
 gem 's3_direct_upload'
