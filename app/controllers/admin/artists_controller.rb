@@ -37,7 +37,7 @@ class Admin::ArtistsController < ApplicationController
   
   protected
   def artist_params
-    params.require(:artist).permit(:name)
+    params.require(:artist).permit(:name, :gallery_roster)
   end
   
   def cv_params
