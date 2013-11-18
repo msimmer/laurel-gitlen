@@ -1,0 +1,7 @@
+$('#file-<%= @piece.upload_key %>').fadeOut('fast', function(){
+	$(this).html(
+		'<div class="alert alert-info aler-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>Success.</strong> <%= @piece.title %> uploaded succesfully.</div>'
+		).fadeIn('fast').removeAttr('id');
+});
+	
+$('#work-list').append('<%=j render "single", piece: @piece %>');
