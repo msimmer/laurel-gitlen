@@ -205,9 +205,12 @@ body.exterior{
 		width:100%;
 	}
 	.slide {
-		p:first-child{
-			padding-top:15px;
+		p{
 			font-size:11px;
+			&:first-child{
+				padding-top:15px;
+			}
+			
 		}
 	}
 	#artist-exhibitions{
