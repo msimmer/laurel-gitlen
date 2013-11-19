@@ -5,7 +5,7 @@ class ExhibitionsController < ApplicationController
   end
   
   def show
-    @exhibition = Exhibition.where("begins <= ?", Date.today).order("begins DESC").take(1)
+    @exhibition = Exhibition.find(params[:id])
     @pieces = @exhibition.pieces
   end
 end

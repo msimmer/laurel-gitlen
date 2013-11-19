@@ -7,6 +7,7 @@
 
 $(window).resize(function(){
 	$("#artist-slides").css("width", $("#artist").width() + "px");
+	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
 });
 
 $(document).on('click', '.exhibition-nav', function(){
