@@ -205,12 +205,12 @@ body.exterior{
 		width:100%;
 	}
 	.slide {
-		p{
+		img{
+			margin-bottom:15px;
+		}
+		p.text-center{
 			font-size:11px;
-			&:first-child{
-				padding-top:15px;
-			}
-			
+			margin-bottom:5px;
 		}
 	}
 	#artist-exhibitions{
