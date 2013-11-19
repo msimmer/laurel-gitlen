@@ -84,6 +84,7 @@ body.exterior{
 			position:fixed;
 			text-transform:uppercase;
 			font-weight:bold;
+			z-index:100;
 		}
 		nav{
 			position:fixed;
@@ -199,11 +200,14 @@ body.exterior{
 		right:50px;
 		z-index:50;
 	}
-	#artist-slides,
-	#gallery-slides{
-		.slide{
-			text-align:center;
-			width:100%;
+	.slide{
+		text-align:center;
+		width:100%;
+	}
+	.slide {
+		p{
+			padding-top:15px;
+			font-size:11px;
 		}
 	}
 	#artist-exhibitions{

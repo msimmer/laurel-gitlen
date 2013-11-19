@@ -17,7 +17,10 @@
 			.slide
 				=image_tag piece.image.url(:medium)
 				- %w(title description year dimensions edition_details).each do |attr|
-					=content_tag(:p, "#{attr.titleize}: #{piece.send(attr)}", class: "text-center") unless piece.send(attr).blank?
+					- unless piece.send(attr).blank?
+						%p.text-center
+							="#{attr.titleize}: " unless %(title description).include?(attr)
+							=piece.send(attr)
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
 
