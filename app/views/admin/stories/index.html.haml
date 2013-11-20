@@ -1,0 +1,5 @@
+.navbar.navbar-default
+	.container
+		=link_to 'Add News Story', new_admin_story_url, :class => 'btn btn-default navbar-btn btn-small'
+- @stories.each do |story|
+	=render 'single', story: story

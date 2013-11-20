@@ -28,5 +28,10 @@
 	$('#artist-slides').cycle({
 		prev: $('#prev'),
 		next: $('#next'),
-		timeout: 0
+		timeout: 0,
+		before: function(){
+			setTimeout(function(){
+				centerSlides();
+			}, 100);
+		}
 	});

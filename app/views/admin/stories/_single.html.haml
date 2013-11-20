@@ -1,0 +1,7 @@
+.admin-story{id: "story-#{story.id}"}
+	%strong= story.date.strftime("%b %d %Y")
+	=link_to 'Edit', edit_admin_story_url(story), data: { remote: "true" }
+	|
+	=link_to 'Delete', admin_story_url(story), data: {method: "delete", remote: "true", confirm: "Are you sure?"} 
+	%br
+	=raw story.story

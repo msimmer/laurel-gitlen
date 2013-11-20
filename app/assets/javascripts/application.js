@@ -5,10 +5,15 @@
 //= require turbolinks
 //= require_tree .
 
-$(window).resize(function(){
+function centerSlides() {
 	$("#artist-slides").css("width", $("#artist").width() + "px");
 	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
+}
+
+$(window).resize(function(){
+	centerSlides();
 });
+
 
 $(document).on('click', '.exhibition-nav', function(){
 	$('.exhibition-nav').parent().toggleClass('active');

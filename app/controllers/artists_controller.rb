@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.on_roster.all(include: :pieces)
+    @artists = Artist.on_roster.all(include: :pieces).sort_by {|a| a.name.downcase}
   end
   
   def show

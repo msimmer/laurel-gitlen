@@ -5,4 +5,9 @@ class StaticController < ApplicationController
   
   def contact
   end
+  
+  def news
+    @stories = Story.order('date desc').all
+    @stories_by_month = @stories.group_by{ |e| e.date.month }
+  end
 end

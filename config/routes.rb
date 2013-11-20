@@ -5,6 +5,7 @@ Gallery::Application.routes.draw do
   
   namespace :admin do
     resources :sessions, only: :create
+    resources :stories
 
     resources :exhibitions do
       post 'aws_callback', :on => :member
@@ -26,4 +27,5 @@ Gallery::Application.routes.draw do
   root 'static#splash'
   get 'splash' => 'static#splash'
   get 'contact' => 'static#contact'
+  get 'news' => 'static#news'
 end

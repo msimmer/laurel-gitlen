@@ -222,6 +222,26 @@ body.exterior{
 	#exhibitions{
 		margin-top:40px;
 	}
+	
+	#stories{
+		font-family:Monospace;
+		font-size:12px;
+		h5{
+			font-family:Monospace;
+			font-size:13px;
+			font-weight:bold;
+			margin-top:15px;
+			text-transform:uppercase;
+		}
+		p, a{
+			font-family:Monospace;
+			font-size:14px;
+			margin-bottom:3px;
+		}
+		.story{
+			margin-bottom:10px;
+		}
+	}
 }
 
 #canvas{
@@ -297,4 +317,8 @@ body.sorting .work-frame{
 	box-shadow:2px 2px 8px 2px #666;
 	cursor:move;
 }
-
+.admin-story{
+	border-bottom:1px dotted black;
+	padding-bottom:10px;
+	margin-bottom:10px;
+}

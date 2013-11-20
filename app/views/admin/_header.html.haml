@@ -8,3 +8,5 @@
 					=link_to 'Exhibitions', admin_exhibitions_url
 				%li{class: ['artists', 'works'].include?(controller_name) ? 'active' : ''}
 					=link_to 'Artists', admin_artists_url
+				%li{class: controller_name == 'stories' ? 'active' : ''}
+					=link_to 'News', admin_stories_url

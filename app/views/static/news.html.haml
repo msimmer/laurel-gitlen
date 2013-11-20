@@ -1,0 +1,5 @@
+#stories
+	- @stories_by_month.each do |month, stories|
+		%h5= stories.first.date.strftime("%B %Y")
+		-stories.each do |story|
+			.story=raw story.story
