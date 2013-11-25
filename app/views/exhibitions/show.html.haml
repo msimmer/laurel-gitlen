@@ -4,7 +4,7 @@
 		%ul.list-unstyled
 			%li= @exhibition.artists.map {|a| a.name}.join(', ')
 			%li= link_to "press release", "#"
-			%li= @exhibition.begins.strftime("%m.%d&mdash;") + "" + @exhibition.ends.strftime("%m.%d.%y")
+			%li= @exhibition.begins.strftime("%m.%d") + " – " + @exhibition.ends.strftime("%m.%d.%y")
 	#artist-slides
 		- @pieces.each do |piece|
 			.slide

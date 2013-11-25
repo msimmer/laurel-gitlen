@@ -7,38 +7,37 @@
 		=image_tag(artist.pieces.first.image.url(:thumb), class: "#{artist.name.gsub(/\s+/, "")}-img", data: {artist: artist.name.gsub(/\s+/, "")}) unless artist.pieces.blank?
 
 :javascript
-	$('#random-images img').one('load', function () {
-		do {
+	//$('#random-images img').one('load', function () {
+	//	do {
 
-			var imgWidth = $(this).width(),
-				imgHeight = $(this).height(),
-				posx = (Math.random() * ($(document).width() - imgWidth)).toFixed(),
-				posy = (Math.random() * ($(document).height() - imgHeight)).toFixed(),
-				randomnumber = Math.ceil(Math.random() * 120 + 80),
-				artist_name = $(this).data("artist");
-			
-			$(this)
-				.css({
-					"top": posy + "px",
-					"left": posx + "px",
-					"position":"fixed",
-					"display":"none",
-					"height": randomnumber + "px",
-					"width": "auto",
-					"cursor": "pointer"
-				})
-				.appendTo("#canvas")
-				.click( function() {
-					window.location.href = $("#" + artist_name).attr("href");
-				});
-		}
-		while ($("#canvas").find("img").overlaps().length !== 0);
-
-	}).each(function () {
-		if (this.complete) $(this).load();
-	});
-	
-	$(".artist-link").mouseover(function(){
-		$("." + $(this).attr("id") + "-img").fadeIn();
-	});
+	//		var imgWidth = $(this).width(),
+	//			imgHeight = $(this).height(),
+	//			posx = (Math.random() * ($(document).width() - imgWidth)).toFixed(),
+	//			posy = (Math.random() * ($(document).height() - imgHeight)).toFixed(),
+	//			randomnumber = Math.ceil(Math.random() * 120 + 80),
+	//			artist_name = $(this).data("artist");
+	//		
+	//		$(this)
+	//			.css({
+	//				"top": posy + "px",
+	//				"left": posx + "px",
+	//				"position":"fixed",
+	//				"display":"none",
+	//				"height": randomnumber + "px",
+	//				"width": "auto",
+	//				"cursor": "pointer"
+	//			})
+	//			.appendTo("#canvas")
+	//			.click( function() {
+	//				window.location.href = $("#" + artist_name).attr("href");
+	//			});
+	//	}
+	//	while ($("#canvas").find("img").overlaps().length !== 0);
+	//}).each(function () {
+	//	if (this.complete) $(this).load();
+	//});
+	//
+	//$(".artist-link").mouseover(function(){
+	//	$("." + $(this).attr("id") + "-img").fadeIn();
+	//});
 	
