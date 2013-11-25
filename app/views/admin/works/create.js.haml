@@ -1,11 +1,11 @@
 :plain
 	$('#file-#{ @piece.upload_key }').fadeOut('fast', function(){
 		$(this).html(
-			'<div class="alert alert-info aler-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>Success.</strong> #{ @piece.name } uploaded succesfully.</div>'
+			'<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>Success.</strong> File uploaded successfully.</div>'
 			).fadeIn('fast').removeAttr('id');
 	});
 	
 	var new_work = '<div id="work_#{ @piece.id }" class="work-frame" data-record-id="#{ @piece.id }">' +
-		'<p>#{ @piece.name }</p> <p>#{ image_tag @piece.image.url(:thumb) }</p></div>'
+		'<p>#{ @piece.description }</p> <p>#{ image_tag @piece.image.url(:thumb) }</p></div>'
 	
 	$('#work-list').append(new_work);
