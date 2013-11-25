@@ -9,7 +9,7 @@
 		- @pieces.each do |piece|
 			.slide
 				=image_tag piece.image.url(:medium)
-				%p.text-center= piece.artist.name
+				%p.text-center= piece.artist.try(:name)
 				.desc.text-center=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
