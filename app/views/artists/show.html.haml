@@ -16,11 +16,8 @@
 		- @pieces.each do |piece|
 			.slide
 				=image_tag piece.image.url(:medium)
-				- %w(title description year dimensions edition_details).each do |attr|
-					- unless piece.send(attr).blank?
-						%p.text-center
-							="#{attr.titleize}: " unless %(title description).include?(attr)
-							=piece.send(attr)
+				%p.text-center= piece.artist.name
+				.desc.text-center=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
 
