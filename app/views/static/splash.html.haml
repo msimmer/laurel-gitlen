@@ -4,7 +4,7 @@
 		%br
 		=@exhibition.ends.strftime("%m.%d.%y")
 	%h2#splash-title.text-center
-		=link_to @exhibition.name, exhibition_url(@exhibition), data: {remote: true}
+		=link_to @exhibition.name, exhibition_url(@exhibition)
 		-unless @exhibition.artists.blank?
 			%br
 			&mdash;

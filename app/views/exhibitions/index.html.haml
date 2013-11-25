@@ -7,8 +7,9 @@
 				.col-md-11
 					-exhibitions.each do |exhibition|
 						.exhibition
-							.exhibition-info
+							.exhibition-info{ class: exhibition.pieces.blank? ? "empty" : "toggleable" }
 								%span=exhibition.name
 								%span=exhibition.artists.map {|a| a.name}.join(', ')
 								%span.text-right="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
-							=render 'images', exhibition: exhibition
+							- unless exhibition.pieces.blank?
+								=render 'images', exhibition: exhibition

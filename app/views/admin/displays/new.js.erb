@@ -8,5 +8,30 @@ $('#modal-form').modal('show').
 
 $('#s3-uploader').S3Uploader({
 	click_submit_target: $('#modal-form-submit'),
-	remove_completed_progress_bar: false
+	remove_completed_progress_bar: false,
+	before_add: function(e) { 
+		setTimeout(function() {
+			$('#file-' + e.unique_id).find("#piece_description")
+				.jqte({
+					center: false,
+					color: false,
+					fsize: false,
+					format: false,
+					left: false,
+					ol: false,
+					indent: false,
+					outdent: false,
+					remove: false,
+					right: false,
+					sub: false,
+					strike: false,
+					source: false,
+					sup: false,
+					title: false,
+					ul: false
+				});
+		}, 100)
+		return true;
+	}
+	
 });

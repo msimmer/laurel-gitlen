@@ -52,9 +52,9 @@
 	margin:100px 50px 0;
 }
 body.exterior{
-	font-family:'Relative', Helvetica, sans-serif;
+	font-family:'relativelg-regular', Helvetica, sans-serif;
 	h1,h2,h3,h4,h5,p,li,a{
-		font-family:'Relative', Helvetica, sans-serif;
+		font-family:'relativelg-regular', Helvetica, sans-serif;
 	}
 	h2{
 		font-size:36px;
@@ -159,7 +159,9 @@ body.exterior{
 		font-size:10px;
 	}
 	.exhibition{
-		cursor:pointer;
+		.toggleable{
+			cursor:pointer;
+		}
 		border-top:1px solid black;
 		font-size:12px;
 		span{
@@ -168,14 +170,12 @@ body.exterior{
 		}
 	}
 	.exhibition-images{
-		height:200px;
 		margin:10px 0;
 		overflow:auto;
 		overflow-y:hidden;
-		white-space:nowrap;
 		display:none;
 		img{
-			margin-right:10px;
+			margin:10px 10px 0 0;
 		}
 	}
 	
@@ -221,6 +221,9 @@ body.exterior{
 	}
 	#exhibitions{
 		margin-top:40px;
+		.exhibition, .year{
+			font-size:14px;
+		}
 	}
 	
 	#stories{
@@ -321,4 +324,7 @@ body.sorting .work-frame{
 	border-bottom:1px dotted black;
 	padding-bottom:10px;
 	margin-bottom:10px;
+}
+.jqte {
+	margin:0 !important;
 }

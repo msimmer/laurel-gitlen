@@ -1,0 +1,28 @@
+#artist
+	#artist-info
+		%h3= @exhibition.name
+		%ul.list-unstyled
+			%li= @exhibition.artists.map {|a| a.name}.join(', ')
+			%li= link_to "press release", "#"
+			%li= @exhibition.begins.strftime("%m.%d&mdash;") + "" + @exhibition.ends.strftime("%m.%d.%y")
+	#artist-slides
+		- @pieces.each do |piece|
+			.slide
+				=image_tag piece.image.url(:medium)
+				%p.text-center= piece.artist.name
+				.desc.text-center=raw piece.description
+	#prev=link_to raw('&#8592;'), '#'
+	#next=link_to raw('&#8594;'), '#'
+
+:javascript
+	$('#artist-slides').cycle({
+		prev: $('#prev'),
+		next: $('#next'),
+		timeout: 0,
+		startingSlide: #{ params[:slide] },
+		before: function(){
+			setTimeout(function(){
+				centerSlides();
+			}, 100);
+		}
+	});

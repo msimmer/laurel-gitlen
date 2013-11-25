@@ -30,7 +30,7 @@ $(document).on('click', '.get', function(){
 	}
 });
 
-$(document).on('click', '.exhibition-info', function(){
+$(document).on('click', '.exhibition-info.toggleable', function(){
 	var panel = $(this).siblings('.exhibition-images');
 	panel.slideToggle().toggleClass('open');
 	$('.open').not(panel).slideToggle().toggleClass('open')

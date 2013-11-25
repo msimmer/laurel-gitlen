@@ -16,20 +16,8 @@
 			=f.label :artist_name
 			=f.text_field :artist_name, class: 'form-control smart-artist'
 		.control-group
-			= f.label :title 
-			= f.text_area :title, class: 'form-control'
-		.control-group
 			=f.label :description
 			=f.text_area :description, class: 'form-control'
-		.control-group
-			=f.label :year
-			=f.select :year, (1950..Date.today.year).to_a.reverse, {}, {class: 'form-control'}
-		.control-group
-			=f.label :dimensions
-			=f.text_area :dimensions, class: 'form-control'
-		.control-group
-			=f.label :edition_details
-			=f.text_area :edition_details, class: 'form-control'
 		
 		%p
 			.progress
