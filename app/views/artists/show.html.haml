@@ -8,7 +8,7 @@
 				%li
 					%ul#artist-exhibitions.list-unstyled
 						-@artist.exhibitions.each do |exhibition|
-							%li=link_to exhibition.name, exhibition_url(exhibition), data: {remote: true}
+							%li=link_to exhibition.name, exhibition_url(exhibition)
 
 			%li=link_to 'Press', '#'
 			%li=link_to 'CV', '#'
