@@ -28,4 +28,5 @@ Gallery::Application.routes.draw do
   get 'splash' => 'static#splash'
   get 'contact' => 'static#contact'
   get 'news' => 'static#news'
+  get 'archives' => 'static#archives'
 end

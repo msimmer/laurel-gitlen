@@ -6,8 +6,7 @@
 //= require_tree .
 
 function centerSlides() {
-	$("#artist-slides").css("width", $("#artist").width() + "px");
-	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
+	$(".slides").css("width", $(".slides").parent().width() + "px");
 }
 
 $(window).resize(function(){

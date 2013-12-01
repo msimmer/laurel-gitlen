@@ -179,16 +179,6 @@ body.exterior{
 		}
 	}
 	
-	#artists{
-		font-size:18px;
-		padding-top:200px;
-	}
-	#artist-info{
-		position:absolute;
-		top:300px;
-		width:25%;
-		z-index:99999;
-	}
 	#prev{
 		position:absolute;
 		top:250px;
@@ -255,22 +245,8 @@ body.exterior{
 	position:absolute;
 }
 
-#gallery{
-	z-index:1050;
-	position:fixed;
-	background:white;
-	top:50px;
-	padding-top:50px;
-	width:100%;
-	border-top:1px dotted black;
-	height:100%;
-	#prev{
-		left:50px;
-	}
-	.close{
-		margin-right: 50px;
-		margin-top: -37px;
-	}
+.gallery{
+	min-width:770px;
 }
 
 /* Admin
@@ -326,5 +302,5 @@ body.sorting .work-frame{
 	margin-bottom:10px;
 }
 .jqte {
-	margin:0 !important;
+	margin:10px 0 !important;
 }

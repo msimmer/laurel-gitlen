@@ -1,28 +1,30 @@
-#artist
-	#artist-info
-		%h3=@artist.name
-		%ul.list-unstyled
-			%li=link_to 'Selected Work', '#'
-			-unless @artist.exhibitions.blank? 
-				%li=link_to 'Exhibitions', '#', class: "artist-exhibitions-link"
-				%li
-					%ul#artist-exhibitions.list-unstyled
-						-@artist.exhibitions.each do |exhibition|
-							%li=link_to exhibition.name, exhibition_url(exhibition)
+#artist.gallery
+	.row
+		.col-xs-2
+			%h3=@artist.name
+			%ul.list-unstyled
+				%li=link_to 'Selected Work', '#'
+				-unless @artist.exhibitions.blank? 
+					%li=link_to 'Exhibitions', '#', class: "artist-exhibitions-link"
+					%li
+						%ul#artist-exhibitions.list-unstyled
+							-@artist.exhibitions.each do |exhibition|
+								%li=link_to exhibition.name, exhibition_url(exhibition)
 
-			%li=link_to 'Press', '#'
-			%li=link_to 'CV', '#'
-	#artist-slides
-		- @pieces.each do |piece|
-			.slide
-				=image_tag piece.image.url(:medium)
-				%p.text-center= piece.artist.name
-				.desc.text-center=raw piece.description
+				%li=link_to 'Press', '#'
+				%li=link_to 'CV', '#'
+		.col-xs-10
+			.slides
+				- @pieces.each do |piece|
+					.slide
+						=image_tag piece.image.url(:medium)
+						%p.text-center= piece.artist.name
+						.desc.text-center=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
 
 :javascript
-	$('#artist-slides').cycle({
+	$('.slides').cycle({
 		prev: $('#prev'),
 		next: $('#next'),
 		timeout: 0,

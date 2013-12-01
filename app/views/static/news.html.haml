@@ -1,5 +1,10 @@
 #stories
-	- @stories_by_month.each do |month, stories|
-		%h5= stories.first.date.strftime("%B %Y")
-		-stories.each do |story|
-			.story=raw story.story
+	- @artists.each do |artist|
+		%h5= artist.name
+		- artist.stories.featured.each do |story|
+			.story
+				=raw story.story
+				.story-date= story.date.strftime("%m.%d.%Y")
+			
+	
+	=link_to 'See news archives >', '/archives' 

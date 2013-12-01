@@ -10,7 +10,9 @@ class Admin::StoriesController < ApplicationController
   end
   
   def create
-    redirect_to admin_stories_url if (@story = Story.create(story_params))
+    @story = Story.new(story_params)
+    @story.save_with_artists
+    redirect_to admin_stories_url
   end
   
   def edit
@@ -19,11 +21,13 @@ class Admin::StoriesController < ApplicationController
   
   def update
     @story = Story.find(params[:id])
-    @story.update_attributes(story_params)
+    @story.attributes = story_params
+    @story.save_with_artists
+    redirect_to admin_stories_url
   end
   
   protected
   def story_params
-    params.require(:story).permit(:story, :date)
+    params.require(:story).permit(:story, :date, :featured, :artists_ids => [])
   end
 end

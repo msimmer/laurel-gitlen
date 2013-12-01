@@ -1,21 +1,23 @@
-#artist
-	#artist-info
-		%h3= @exhibition.name
-		%ul.list-unstyled
-			%li= @exhibition.artists.map {|a| a.name}.join(', ')
-			%li= link_to "press release", "#"
-			%li= @exhibition.begins.strftime("%m.%d") + " – " + @exhibition.ends.strftime("%m.%d.%y")
-	#artist-slides
-		- @pieces.each do |piece|
-			.slide
-				=image_tag piece.image.url(:medium)
-				%p.text-center= piece.artist.try(:name)
-				.desc.text-center=raw piece.description
+#exhibition.gallery
+	.row
+		.col-xs-2
+			%h3= @exhibition.name
+			%ul.list-unstyled
+				%li= @exhibition.artists.map {|a| a.name}.join(', ')
+				%li= link_to "press release", "#"
+				%li= @exhibition.begins.strftime("%m.%d") + " – " + @exhibition.ends.strftime("%m.%d.%y")
+		.col-xs-10
+			.slides
+				- @pieces.each do |piece|
+					.slide
+						=image_tag piece.image.url(:medium)
+						%p.text-center= piece.artist.try(:name)
+						.desc.text-center=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
 
 :javascript
-	$('#artist-slides').cycle({
+	$('.slides').cycle({
 		prev: $('#prev'),
 		next: $('#next'),
 		timeout: 0,

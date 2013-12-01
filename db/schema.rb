@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120205315) do
+ActiveRecord::Schema.define(version: 20131201215713) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 20131120205315) do
   create_table "artists_exhibitions", force: true do |t|
     t.integer "artist_id"
     t.integer "exhibition_id"
+  end
+
+  create_table "artists_stories", id: false, force: true do |t|
+    t.integer "artist_id", null: false
+    t.integer "story_id",  null: false
   end
 
   create_table "displays", id: false, force: true do |t|
@@ -68,6 +73,7 @@ ActiveRecord::Schema.define(version: 20131120205315) do
   create_table "stories", force: true do |t|
     t.text     "story"
     t.date     "date"
+    t.boolean  "featured",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

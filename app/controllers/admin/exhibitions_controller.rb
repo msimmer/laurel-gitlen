@@ -12,15 +12,6 @@ class Admin::ExhibitionsController < ApplicationController
     @exhibition = Exhibition.new
   end
   
-  def edit
-  end
-  
-  def update
-    @exhibition.attributes = exhibition_params
-    @exhibition.save_with_artists
-    @artists = @exhibition.artists
-  end
-  
   def create
     @exhibition = Exhibition.new(exhibition_params)
     @exhibition.save_with_artists
@@ -28,6 +19,15 @@ class Admin::ExhibitionsController < ApplicationController
   
   def show
     @works = @exhibition.pieces
+    @artists = @exhibition.artists
+  end
+  
+  def edit
+  end
+  
+  def update
+    @exhibition.attributes = exhibition_params
+    @exhibition.save_with_artists
     @artists = @exhibition.artists
   end
   

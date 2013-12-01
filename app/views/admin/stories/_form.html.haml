@@ -2,11 +2,21 @@
 	.control-group
 		=f.label :date
 		=f.date_select :date
+	.checkbox
+		%label
+			= f.check_box :featured
+			This is a featured story.
 	.control-group
 		=f.text_area :story
-	-if @story.new_record?
-		.form-group
-			=f.submit 'Save', class: 'btn btn-default'
+	.well.artist-checks.clearfix
+		%h4 Choose Artists
+		- Artist.all.each do |artist|
+			.checkbox
+				%label
+					= check_box_tag 'story[artists_ids][]', artist.id, @story.artists.include?(artist)
+					= artist.name
+	.form-group
+		=f.submit 'Save', class: 'btn btn-default'
 		
 :javascript
 	$("#story_story").jqte({
@@ -27,7 +37,3 @@
 		title: false,
 		ul: false
 	});
-	
--unless @story.new_record?
-	:javascript
-		$(".form").data("remote", true);

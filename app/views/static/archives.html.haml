@@ -1,0 +1,6 @@
+- @stories_by_month.each do |month, stories|
+	%h5= stories.first.date.strftime("%B %Y")
+	-stories.each do |story|
+		.story
+			.artists=story.artists.map { |a| a.name }.join(" ")
+			=raw story.story
