@@ -6,7 +6,7 @@
 				%li= @exhibition.artists.map {|a| a.name}.join(', ')
 				%li= link_to "press release", "#"
 				%li= @exhibition.begins.strftime("%m.%d") + " – " + @exhibition.ends.strftime("%m.%d.%y")
-		.col-xs-10
+		.col-xs-8
 			.slides
 				- @pieces.each do |piece|
 					.slide
