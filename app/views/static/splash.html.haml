@@ -1,11 +1,11 @@
 #splash
-	%h2#splash-date.text-center
-		=raw @exhibition.begins.strftime("%m.%d&mdash;")
-		%br
-		=@exhibition.ends.strftime("%m.%d.%y")
-	%h2#splash-title.text-center
-		=link_to @exhibition.name, exhibition_url(@exhibition, slide: 0)
-		-unless @exhibition.artists.blank?
+	#splash-wrap
+		#splash-content
+			%strong=raw date_markup(@exhibition)
 			%br
-			&mdash;
-	%h2#splash-exhibitions.text-center=raw @exhibition.artists.map{ |a| a.name }.join('<br/>')
+			=link_to @exhibition.name, exhibition_url(@exhibition, slide: 0)
+			-unless @exhibition.artists.blank?
+				%br
+				&mdash;
+				%br
+				=raw @exhibition.artists.map{ |a| a.name }.join('<br/>')

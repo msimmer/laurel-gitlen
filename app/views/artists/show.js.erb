@@ -1,0 +1,19 @@
+$('<%=j render "gallery" %>').appendTo("body");
+
+$('#gallery-slides').cycle({
+	prev: $('#prev'),
+	next: $('#next'),
+	timeout: 0,
+	startingSlide: <%=j params[:slide] %>,
+	before: function(){
+		setTimeout(function(){
+			centerSlides();
+		}, 100);
+	}
+});
+
+$('.close').click(function(){
+	$("#gallery").fadeOut(function(){
+		$(this).remove();
+	});
+});

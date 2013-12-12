@@ -42,16 +42,19 @@
 
 /* Exterior
 **********************/
+
 #main{
 	width:100%;
 	min-width:960px;
-	min-height:720px;
-	position:relative;
+	min-height:640px;
 }
 #inner{
 	margin:100px 50px 0;
 }
 body.exterior{
+	min-height:640px;
+	position:relative;
+	height:100%;
 	font-family:'relativelg-regular', Helvetica, sans-serif;
 	h1,h2,h3,h4,h5,p,li,a{
 		font-family:'relativelg-regular', Helvetica, sans-serif;
@@ -120,10 +123,31 @@ body.exterior{
 	}
 	#splash{
 		width:100%;
+		height:100%;
+		min-width:960px !important;
+		min-height:480px !important;
+		position:fixed;
+		font-family:"relativelg-medium";
+		font-size:36px;
+		line-height:42px;
+		display:table;
+		left:0;
+		top:0;
+		#splash-wrap{
+			display:table-row;
+			#splash-content{
+				font-family: 'relativelg-regular';
+				display:table-cell;
+				vertical-align:middle;
+				text-align:center;
+				strong{
+					display:inline-block;
+					padding-bottom:15px;
+					font-family: 'relativelg-medium';
+				}
+			}
+		}
 		h2{
-			width:100%;
-			min-width:960px !important;
-			position:fixed;
 			height:50px;
 			left:0;
 			&:nth-child(2){
@@ -131,8 +155,6 @@ body.exterior{
 				margin-top:-25px;
 			}
 			&:first-child{
-				font-family:"relativelg-medium";
-			  font-weight: 300;
 				bottom:50%;
 				margin-bottom:75px;
 			}
@@ -170,13 +192,16 @@ body.exterior{
 		}
 	}
 	.exhibition-images{
+		display:none;
+	}
+	.image-thumbs{
 		margin:10px 0;
 		overflow:auto;
 		overflow-y:hidden;
-		display:none;
 		img{
 			margin:10px 10px 0 0;
 		}
+		
 	}
 	
 	#prev{
@@ -195,13 +220,16 @@ body.exterior{
 		width:100%;
 	}
 	.slide {
+		font-size:12px !important;
 		img{
 			margin-bottom:15px;
 		}
 		p.text-center{
-			font-size:11px;
 			margin-bottom:5px;
 		}
+	}
+	#artists{
+		font-size:18px;
 	}
 	#artist-exhibitions{
 		display:none;

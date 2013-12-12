@@ -14,23 +14,7 @@
 				%li=link_to 'Press', '#'
 				%li=link_to 'CV', '#'
 		.col-xs-8
-			.slides
-				- @pieces.each do |piece|
-					.slide
-						=image_tag piece.image.url(:medium)
-						%p.text-center= piece.artist.name
-						.desc.text-center=raw piece.description
-	#prev=link_to raw('&#8592;'), '#'
-	#next=link_to raw('&#8594;'), '#'
-
-:javascript
-	$('.slides').cycle({
-		prev: $('#prev'),
-		next: $('#next'),
-		timeout: 0,
-		before: function(){
-			setTimeout(function(){
-				centerSlides();
-			}, 100);
-		}
-	});
+			.image-thumbs
+				-unless @artist.pieces.blank?
+					-@artist.pieces.each_with_index do |id, index| 
+						=link_to image_tag(@artist.pieces.find_by_id(id).image.url(:thumb)), artist_url(@artist, slide: index, data: { remote: true })
