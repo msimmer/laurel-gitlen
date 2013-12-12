@@ -273,8 +273,22 @@ body.exterior{
 	position:absolute;
 }
 
-.gallery{
-	min-width:770px;
+#gallery{
+	z-index:1050;
+	position:fixed;
+	background:white;
+	top:50px;
+	padding-top:50px;
+	width:100%;
+	border-top:1px dotted black;
+	height:100%;
+	#prev{
+		left:50px;
+	}
+	.close{
+		margin-right: 50px;
+		margin-top: -37px;
+	}
 }
 
 /* Admin

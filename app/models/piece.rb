@@ -11,7 +11,8 @@ class Piece < ActiveRecord::Base
     whiny: false,
     styles: {
       thumb: 'x200',
-      medium: 'x480'
+      medium: 'x480', 
+      large: '960x720'
     }
   
   def attach_artist

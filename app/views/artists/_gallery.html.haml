@@ -1,0 +1,10 @@
+#gallery
+	=button_tag 'CLOSE', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
+	#gallery-slides
+		- @pieces.each do |piece|
+			.slide
+				=image_tag piece.image.url(:medium)
+				- %w(title description year dimensions edition_details).each do |attr|
+					=content_tag(:p, "#{attr.titleize}: #{piece.send(attr)}", class: "text-center") unless piece.send(attr).blank?
+	#prev=link_to raw('&#8592;'), '#'
+	#next=link_to raw('&#8594;'), '#'

@@ -17,4 +17,4 @@
 			.image-thumbs
 				-unless @artist.pieces.blank?
 					-@artist.pieces.each_with_index do |id, index| 
-						=link_to image_tag(@artist.pieces.find_by_id(id).image.url(:thumb)), artist_url(@artist, slide: index, data: { remote: true })
+						=link_to image_tag(@artist.pieces.find_by_id(id).image.url(:thumb)), artist_url(@artist, slide: index), data: { remote: true }
