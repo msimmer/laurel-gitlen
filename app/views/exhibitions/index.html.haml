@@ -13,3 +13,9 @@
 								%span.text-right="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
 							- unless exhibition.pieces.blank?
 								=render 'images', exhibition: exhibition
+
+
+:javascript
+	$("img").each( function(){
+		$(this).attr("src", $(this).data("src"));
+	});
