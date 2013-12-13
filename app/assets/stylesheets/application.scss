@@ -13,11 +13,11 @@
 
 @font-face {
     font-family: 'gt-pressura-mono-light';
-    src: url('gt-pressura-mono-light.eot');
-    src: url('gt-pressura-mono-light.eot?#iefix') format('embedded-opentype'),
-         url('gt-pressura-mono-light.woff') format('woff'),
-         url('gt-pressura-mono-light.ttf') format('truetype'),
-         url('gt-pressura-mono-light.svg#gt-pressura-mono-light') format('svg');
+    src: url(font-path('gt-pressura-mono-light.eot'));
+    src: url(font-path('gt-pressura-mono-light.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('gt-pressura-mono-light.woff')) format('woff'), 
+         url(font-path('gt-pressura-mono-light.ttf'))  format('truetype'),
+         url(font-path('gt-pressura-mono-light.svg') + "#gt-pressura-mono-light") format('svg');
     font-weight: normal;
     font-style: normal;
 }
