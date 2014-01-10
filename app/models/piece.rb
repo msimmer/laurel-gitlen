@@ -10,7 +10,7 @@ class Piece < ActiveRecord::Base
   has_attached_file :image,
     whiny: false,
     styles: {
-      thumb: 'x200',
+      thumb: 'x90',
       medium: 'x480', 
       large: '960x720'
     }

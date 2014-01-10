@@ -12,12 +12,12 @@
  */
 
 @font-face {
-    font-family: 'gt-pressura-mono-light';
-    src: url(font-path('gt-pressura-mono-light.eot'));
-    src: url(font-path('gt-pressura-mono-light.eot') + "?#iefix") format('embedded-opentype'),
-         url(font-path('gt-pressura-mono-light.woff')) format('woff'), 
-         url(font-path('gt-pressura-mono-light.ttf'))  format('truetype'),
-         url(font-path('gt-pressura-mono-light.svg') + "#gt-pressura-mono-light") format('svg');
+    font-family: 'simplon_bp_medium';
+    src: url(font-path('simplon_bp_medium.eot'));
+    src: url(font-path('simplon_bp_medium.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('simplon_bp_medium.woff')) format('woff'), 
+         url(font-path('simplon_bp_medium.ttf'))  format('truetype'),
+         url(font-path('simplon_bp_medium.svg') + "#simplon_bp_medium") format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -107,10 +107,9 @@ body.exterior{
 					padding:0 23px;
 					
 					a{
-						font-family: 'gt-pressura-mono-light', monospace;
+						font-family: 'simplon_bp_medium', monospace;
 						&:hover{
-							font-style:italic; 
-							text-decoration:none;
+							text-decoration:underline;
 						}
 						&.active{
 							font-style:italic; 
@@ -168,7 +167,7 @@ body.exterior{
 		}
 	}
 	footer{
-		font-family: 'gt-pressura-mono-light', monospace;
+		font-family: 'simplon_bp_medium', monospace;
 		position:fixed;
 		bottom:0;
 		width:100%;
