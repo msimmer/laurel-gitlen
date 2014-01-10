@@ -108,6 +108,8 @@ body.exterior{
 					
 					a{
 						font-family: 'simplon_bp_medium', monospace;
+						letter-spacing:1px;
+						text-transform:uppercase;
 						&:hover{
 							text-decoration:underline;
 						}
