@@ -4,7 +4,7 @@
 			%strong=raw date_markup(@exhibition)
 			%br
 			=link_to @exhibition.name, exhibition_url(@exhibition, slide: 0)
-			-unless @exhibition.artists.blank?
+			-unless @exhibition.artists.blank? || @exhibition.artists.count > 3
 				%br
 				&mdash;
 				%br
