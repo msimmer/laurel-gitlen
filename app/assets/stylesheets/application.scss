@@ -45,17 +45,28 @@
 
 /* Exterior
 **********************/
-
+html, body{height:100%;}
+#wrap{min-height:100%;}
 #main{
 	width:100%;
 	min-width:960px;
-	min-height:640px;
+	overflow:auto;
+	padding-bottom:20px;
 }
+footer{
+	font-family: 'simplon_bp_medium', monospace;
+	position:relative;
+	height:20px;
+	margin-top:-40px;
+	padding:10px 0;
+	text-align:center;
+	clear:both;
+}
+
 #inner{
 	margin:100px 50px 0;
 }
 body.exterior{
-	min-height:640px;
 	position:relative;
 	height:100%;
 	font-family:'relativelg-regular', Helvetica, sans-serif;
@@ -168,14 +179,6 @@ body.exterior{
 			}
 		}
 	}
-	footer{
-		font-family: 'simplon_bp_medium', monospace;
-		position:fixed;
-		bottom:0;
-		width:100%;
-		min-width:960px;
-		text-align:center;
-	}
 	
 	#contact{
 		margin-top:60px;
@@ -238,10 +241,12 @@ body.exterior{
 			bottom:10px;
 			left:10px;
 			text-align:left;
-			span, p {
+			span, p, i, em, strong {
 				font-size:11px !important;
 				line-height:12px !important;
 				color:#666 !important;
+				margin-bottom:0;
+				padding-bottom:0;
 			}
 			
 		}
