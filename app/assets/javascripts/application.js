@@ -11,7 +11,7 @@ function centerSlides() {
 		height = Math.ceil( gallery_height * .8),
 		width = Math.ceil($('#gallery').width() * .8);
 		
-	$('#gallery img:visible').each(function() {
+	$('.slide img:visible').each(function() {
 		$(this).css({
 			"max-height": height + 'px',
 			"max-width": width + 'px',
@@ -19,7 +19,7 @@ function centerSlides() {
 			"width": "auto",
 		});
 		
-		var top = Math.ceil( (gallery_height - $(this).height()) / 2 );
+		var top = Math.ceil( (gallery_height - $(this).height()) / 2 ) - 5;
 
 		$(this).css("margin-top", top + "px");
 

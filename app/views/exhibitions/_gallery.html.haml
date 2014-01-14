@@ -1,5 +1,5 @@
 #gallery
-	=button_tag 'CLOSE', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
+	=button_tag image_tag("close.png"), :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#gallery-slides
 		-@exhibition.safe_piece_order.each do |id|
 			-piece = Piece.find(id)
