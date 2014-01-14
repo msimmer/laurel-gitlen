@@ -6,6 +6,25 @@
 //= require_tree .
 
 function centerSlides() {
+	
+	var gallery_height = $(window).height() - 50,
+		height = Math.ceil( gallery_height * .8),
+		width = Math.ceil($('#gallery').width() * .8);
+		
+	$('#gallery img:visible').each(function() {
+		$(this).css({
+			"max-height": height + 'px',
+			"max-width": width + 'px',
+			"height": "auto",
+			"width": "auto",
+		});
+		
+		var top = Math.ceil( (gallery_height - $(this).height()) / 2 );
+
+		$(this).css("margin-top", top + "px");
+
+	});
+	
 	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
 }
 

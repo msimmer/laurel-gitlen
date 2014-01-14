@@ -1,9 +1,13 @@
 #gallery
 	=button_tag 'CLOSE', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#gallery-slides
-		- @pieces.each do |piece|
+		-@exhibition.safe_piece_order.each do |id|
+			-piece = Piece.find(id)
 			.slide
-				=image_tag piece.image.url(:medium)
-				.description=raw piece.description
+				=image_tag piece.image.url(:large)
+				.description
+					=@exhibition.name
+					%br
+					=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
