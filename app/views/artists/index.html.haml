@@ -4,7 +4,7 @@
 #canvas
 #random-images
 	-@artists.each do |artist|
-		=image_tag(artist.pieces.first.image.url(:thumb), class: "#{artist.name.gsub(/\s+/, "")}-img", data: {artist: artist.name.gsub(/\s+/, "")}) unless artist.pieces.blank?
+		=image_tag(artist.pieces.first.image.url(:medium), class: "#{artist.name.gsub(/\s+/, "")}-img", data: {artist: artist.name.gsub(/\s+/, "")}) unless artist.pieces.blank?
 
 :javascript
 	$('#random-images img').one('load', function () {
@@ -13,7 +13,7 @@
 				imgHeight = $(this).height(),
 				posx = (Math.random() * ($(document).width() - imgWidth)).toFixed(),
 				posy = (Math.random() * ($(document).height() - imgHeight)).toFixed(),
-				randomnumber = Math.ceil(Math.random() * 45 + 45),
+				randomnumber = Math.ceil(Math.random() * 100 + 100),
 				artist_name = $(this).data("artist");
 			
 			$(this)
