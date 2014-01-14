@@ -11,10 +11,23 @@
 		do {
 			var imgWidth = $(this).width(),
 				imgHeight = $(this).height(),
-				posx = (Math.random() * ($(document).width() - imgWidth)).toFixed(),
-				posy = (Math.random() * ($(document).height() - imgHeight)).toFixed(),
-				randomnumber = Math.ceil(Math.random() * 100 + 100),
+				posx = (Math.random() * $(document).width()).toFixed(),
+				posy = (Math.random() * $(document).height()).toFixed(),
+				randomNumber = Math.ceil(Math.random() * 100 + 100),
 				artist_name = $(this).data("artist");
+				
+			if(($(document).height() - posy) < randomNumber ){
+				posy = $(document).height() - randomNumber;
+			}
+			
+			if(($(document).width() - posx) < randomNumber ){
+				posx = $(document).width() - randomNumber;
+			}
+			
+			console.log("imgHeight: " + imgHeight )
+			console.log("imgWidth: " + imgWidth )
+			console.log("x: " + posx )
+			console.log("y: " + posy )
 			
 			$(this)
 				.css({
@@ -22,8 +35,10 @@
 					"left": posx + "px",
 					"position":"fixed",
 					"display":"none",
-					"height": randomnumber + "px",
+					"max-height": randomNumber + "px",
+					"max-width": randomNumber + "px",
 					"width": "auto",
+					"height": "auto",
 					"cursor": "pointer",
 					"z-index": "-1"
 				})
