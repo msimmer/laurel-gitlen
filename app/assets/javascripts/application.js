@@ -5,13 +5,19 @@
 //= require turbolinks
 //= require_tree .
 
-function centerSlides() {
+function centerSlides(){
+	$(".slide img:visible").each(function() {
+		centerSlide($(this));
+	});
+}
+
+function centerSlide(image){
 	
 	var gallery_height = $(window).height() - 50,
 		height = Math.ceil( gallery_height * .8),
 		width = Math.ceil($('#gallery').width() * .8);
 		
-	$(".slide img").each(function() {
+	$(image).each(function() {
 		$(this).css({
 			"max-height": height + 'px',
 			"max-width": width + 'px',
@@ -24,11 +30,6 @@ function centerSlides() {
 
 		$(this).css("margin-top", top + "px");
 
-		console.log("gallery_height : " + gallery_height);
-		console.log("height : " + height);
-		console.log("width: " + width);
-		console.log("top: " + top);
-
 	});
 	
 	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
@@ -37,7 +38,6 @@ function centerSlides() {
 $(window).resize(function(){
 	centerSlides();
 });
-
 
 $(document).on('click', '.exhibition-nav', function(){
 	$('.exhibition-nav').parent().toggleClass('active');

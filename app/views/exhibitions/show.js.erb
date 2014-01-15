@@ -1,16 +1,21 @@
 $('<%=j render "gallery" %>').appendTo("body");
 
-centerSlides();
+$(".slide img").one('load', function() {
+  centerSlide($(this));
+}).each(function() {
+  if(this.complete) $(this).load();
+});
 
 $('#gallery-slides').cycle({
 	prev: $('#prev'),
 	next: $('#next'),
 	timeout: 0,
 	startingSlide: <%=j params[:slide] %>,
-	before: function(){
-		setTimeout(function(currSlideElement, nextSlideElement, options, forwardFlag){
-			centerSlides();
-		}, 100);
+	before: function(currSlideElement, nextSlideElement, options, forwardFlag){
+		setTimeout(function(){
+			centerSlide($(currSlideElement).find("img"));
+			centerSlide($(nextSlideElement).find("img"));
+		}, 50);
 	}
 });
 
