@@ -11,7 +11,7 @@ function centerSlides() {
 		height = Math.ceil( gallery_height * .8),
 		width = Math.ceil($('#gallery').width() * .8);
 		
-	$('.slide img:visible').each(function() {
+	$(".slide img").each(function() {
 		$(this).css({
 			"max-height": height + 'px',
 			"max-width": width + 'px',

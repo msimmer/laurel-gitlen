@@ -8,6 +8,9 @@
 				.description
 					=@exhibition.name
 					%br
+					-if piece.artist.try(:name)
+						=piece.artist.name
+						%br
 					=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'
