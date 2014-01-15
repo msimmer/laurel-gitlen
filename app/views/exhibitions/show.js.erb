@@ -9,7 +9,7 @@ $('#gallery-slides').cycle({
 	startingSlide: <%=j params[:slide] %>,
 	before: function(){
 		setTimeout(function(currSlideElement, nextSlideElement, options, forwardFlag){
-			centerSlides;
+			centerSlides();
 		}, 100);
 	}
 });

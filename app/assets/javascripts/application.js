@@ -19,9 +19,15 @@ function centerSlides() {
 			"width": "auto",
 		});
 		
-		var top = Math.ceil( (gallery_height - $(this).height()) / 2 ) - 5;
+		var new_height = $(this).height(),
+			top = Math.ceil( (gallery_height - new_height) / 2 ) - 5;
 
 		$(this).css("margin-top", top + "px");
+
+		console.log("gallery_height : " + gallery_height);
+		console.log("height : " + height);
+		console.log("width: " + width);
+		console.log("top: " + top);
 
 	});
 	
