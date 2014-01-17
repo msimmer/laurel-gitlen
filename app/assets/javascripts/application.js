@@ -13,25 +13,36 @@ function centerSlides(){
 
 function centerSlide(image){
 	
-	var gallery_height = $(window).height() - 50,
-		height = Math.ceil( gallery_height * .8),
-		width = Math.ceil($('#gallery').width() * .8);
+	var galleryHeight = $(window).height() - 50,
+		maxHeight = Math.floor( galleryHeight * 0.8),
+		maxWidth = Math.floor($(window).width() * 0.8),
+		trueHeight = $(image).data("trueHeight"),
+		trueWidth = $(image).data("trueWidth"),
+		newHeight = trueHeight,
+		newWidth = trueWidth,
+		top = 0;
 		
-	$(image).each(function() {
-		$(this).css({
-			"max-height": height + 'px',
-			"max-width": width + 'px',
-			"height": "auto",
-			"width": "auto",
-		});
-		
-		var new_height = $(this).height(),
-			top = Math.ceil( (gallery_height - new_height) / 2 ) - 5;
-
-		$(this).css("margin-top", top + "px");
-
-	});
 	
+	if(maxWidth < newWidth){
+		newWidth = maxWidth;
+		newHeight = Math.floor( (maxWidth / trueWidth) * trueHeight );
+	}
+  
+	if(maxHeight < newHeight){
+		newHeight = maxHeight;
+		newWidth = Math.floor( (maxHeight / trueHeight) * trueWidth );
+	}
+	
+	top = Math.floor( (galleryHeight - newHeight) / 2 );
+
+	$(image).css({
+		"max-height": maxHeight + 'px',
+		"max-width": maxWidth + 'px',
+		"height": "auto",
+		"width": "auto",
+		"margin-top": top + "px"
+	});
+
 	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
 }
 

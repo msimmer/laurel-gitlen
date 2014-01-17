@@ -1,9 +1,15 @@
 $('<%=j render "gallery" %>').appendTo("body");
 
 $(".slide img").one('load', function() {
-  centerSlide($(this));
+	$(this).data({
+		trueHeight: $(this).height(),
+		trueWidth: $(this).width()
+	});
+	
+	centerSlide($(this));
+	
 }).each(function() {
-  if(this.complete) $(this).load();
+	if(this.complete) $(this).load();
 });
 
 $('#gallery-slides').cycle({
