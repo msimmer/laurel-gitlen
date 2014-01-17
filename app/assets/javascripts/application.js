@@ -40,8 +40,7 @@ function centerSlide(image){
 		"max-width": maxWidth + 'px',
 		"height": "auto",
 		"width": "auto",
-		"margin-top": top + "px",
-		"opacity": 1
+		"margin-top": top + "px"
 	});
 
 	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");

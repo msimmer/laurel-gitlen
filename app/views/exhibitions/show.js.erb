@@ -2,7 +2,10 @@ $('<%=j render "gallery" %>').appendTo("body");
 
 $(".slide img").one('load', function() {
 	centerSlide($(this));
-	
+	$(this).animate({
+		opacity: 1, 
+	}, 500);
+
 }).each(function() {
 	if(this.complete) $(this).load();
 });
