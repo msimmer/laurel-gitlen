@@ -22,44 +22,14 @@ function centerSlide(image){
 		newWidth = $(image).width(),
 		top = 0;
 		
-	//if(maxHeight < trueHeight){
-	//	newWidth = Math.floor( (trueHeight/maxHeight)*trueWidth );
-	//	newHeight = maxHeight;
-	//	if(maxWidth < newWidth){
-	//		newHeight = Math.floor((trueWidth/maxWidth)*trueHeight);
-	//		newWidth = maxWidth;
-	//	}
-	//	
-	//}else{
-	//	if(maxWidth < trueWidth){
-	//		newHeight = Math.floor((trueWidth/maxWidth)*trueHeight);
-	//		newWidth = maxWidth;
-	//	}
-	//}
-	
-	console.log('maxWidth is: ' + maxWidth);
-	console.log('newWidth is: ' + newWidth);
-	console.log('trueWidth is: ' + trueWidth);
-	
 	if(maxWidth < newWidth){
 		newWidth = maxWidth;
 		newHeight = Math.floor( (maxWidth / trueWidth) * trueHeight );
-
-		console.log('maxWidth is less than newWidth')
-		console.log('ratio is ' + (trueWidth / maxWidth));
-		console.log('changing newWidth to ' + newWidth);
-		console.log('changing newHeight to ' + newHeight);
-		
 	}
   
 	if(maxHeight < newHeight){
 		newHeight = maxHeight;
 		newWidth = Math.floor( (maxHeight / trueHeight) * trueWidth );
-
-		console.log('maxHeight is less than newHeight')
-		console.log('ratio is ' + (trueHeight / maxHeight));
-		console.log('changing newWidth to ' + newWidth);
-		console.log('changing newHeight to ' + newHeight);
 	}
 	
 	
@@ -70,7 +40,8 @@ function centerSlide(image){
 		"max-width": maxWidth + 'px',
 		"height": "auto",
 		"width": "auto",
-		"margin-top": top + "px"
+		"margin-top": top + "px",
+		"opacity": 1
 	});
 
 	$("#gallery-slides .slide").css("width", $("#gallery").width() + "px");
@@ -121,7 +92,6 @@ $(document).on('ajax:before', 'form', function(event, xhr, settings) {
 		addClass("working");
 	
 	$('#modal-form').addClass("working");
-			
 });
 
 $(document).on('ajax:complete', 'form', function(event, xhr, settings) {
