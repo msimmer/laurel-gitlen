@@ -1,7 +1,7 @@
 #splash
 	#splash-wrap
 		#splash-content
-			%strong=raw date_markup(@exhibition)
+			%strong=raw date_markup(@exhibition, true)
 			%br
 			=link_to @exhibition.name, exhibition_url(@exhibition, slide: 0), data: {remote: true}
 			-unless @exhibition.artists.blank? || @exhibition.artists.count > 3

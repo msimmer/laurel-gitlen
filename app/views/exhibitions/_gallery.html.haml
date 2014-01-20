@@ -1,12 +1,21 @@
 #gallery
-	=button_tag image_tag("close.png"), :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
+	#gallery-header
+		#gallery-header-left
+			%ul.list-inline.list-unstyled
+				%li= @exhibition.name
+				-if @exhibition.artists.size == 1
+					%li= @exhibition.artists.first.name
+				%li=raw date_markup(@exhibition)
+				-if !@exhibition.press_release.blank?
+					%li=link_to "press release", @exhibition.press_release
+		#gallery-header-right
+			=button_tag image_tag("close.png"), :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#gallery-slides
 		-@exhibition.safe_piece_order.each do |id|
 			-piece = Piece.find(id)
 			.slide
 				=image_tag piece.image.url(:large)
 				.description
-					=@exhibition.name
 					%br
 					-if piece.artist.try(:name)
 						=piece.artist.name
