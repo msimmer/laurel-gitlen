@@ -280,6 +280,7 @@ body.exterior{
 	#exhibitions{
 		margin-top:40px;
 		.exhibition, .year{
+			padding:3px 0;
 			font-size:14px;
 		}
 	}
@@ -287,6 +288,7 @@ body.exterior{
 	#stories{
 		font-family:Monospace;
 		font-size:12px;
+		width:780px;
 		h5{
 			font-family:Monospace;
 			font-size:13px;
@@ -348,10 +350,9 @@ body.exterior{
 		
 		ul{
 			font-size:13px;
-			font-weight:bold;
 			margin-bottom:0;
 			li{
-				margin-right:20px;
+				margin-right:10px;
 			}
 		}
 	}
