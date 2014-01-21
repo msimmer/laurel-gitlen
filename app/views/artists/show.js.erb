@@ -1,14 +1,25 @@
 $('<%=j render "gallery" %>').appendTo("body");
 
+$(".slide img").one('load', function() {
+	centerSlide($(this));
+	$(this).animate({
+		opacity: 1, 
+	}, 500);
+
+}).each(function() {
+	if(this.complete) $(this).load();
+});
+
 $('#gallery-slides').cycle({
 	prev: $('#prev'),
 	next: $('#next'),
 	timeout: 0,
 	startingSlide: <%=j params[:slide] %>,
-	before: function(){
+	before: function(currSlideElement, nextSlideElement, options, forwardFlag){
 		setTimeout(function(){
-			centerSlides();
-		}, 100);
+			centerSlide($(currSlideElement).find("img"));
+			centerSlide($(nextSlideElement).find("img"));
+		}, 50);
 	}
 });
 

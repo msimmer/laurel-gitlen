@@ -1,9 +1,9 @@
 #exhibitions
 	- @exhibitions_by_year.each do |year, exhibitions|
 		.row
-			.col-md-1
+			.col-xs-1
 				.year=year
-			.col-md-11
+			.col-xs-11
 				-exhibitions.each do |exhibition|
 					.exhibition{class: exhibition.art_fair ? "art-fair" : ""}
 						.exhibition-info{ class: exhibition.pieces.blank? ? "empty" : "toggleable"  }

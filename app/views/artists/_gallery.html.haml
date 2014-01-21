@@ -1,9 +1,18 @@
 #gallery
-	=button_tag 'CLOSE', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
+	#gallery-header
+		#gallery-header-left
+			%ul.list-inline.list-unstyled
+				%li= @artist.name
+				-if !@artist.cv_link.blank?
+					%li=link_to "cv", @exhibition.cv_link
+		#gallery-header-right
+			=button_tag image_tag("close.png"), :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#gallery-slides
-		- @pieces.each do |piece|
+		-@pieces.each do |piece|
 			.slide
-				=image_tag piece.image.url(:medium)
-				.description=raw piece.description
+				=image_tag piece.image.url(:large)
+				.description
+					%br
+					=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
 	#next=link_to raw('&#8594;'), '#'

@@ -1,8 +1,11 @@
 #stories
 	- @artists.each do |artist|
-		%h5= artist.name
-		- artist.stories.featured.each do |story|
-			.story
-				=raw story.story
+		.row
+			.col-xs-2
+				%h5= artist.name
+			.col-xs-6
+				- artist.stories.featured.each do |story|
+					.story
+						=raw story.story
 	
 	=link_to 'See news archives >', '/archives' 
