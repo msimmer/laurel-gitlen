@@ -286,24 +286,16 @@ body.exterior{
 	}
 	
 	#stories{
-		font-family:Monospace;
-		font-size:12px;
+		font-size:14px !important;
 		.row{
 			border-bottom:1px solid black;
 			margin:0 0 20px !important;
 			padding-bottom:20px;
 		}
-		h5{
+		.artist-name{
 			margin-left:-15px;
-			font-family:Monospace;
-			font-size:13px;
-			font-weight:bold;
-			text-transform:uppercase;
-			margin-top:0;
 		}
 		p, a{
-			font-family:Monospace;
-			font-size:14px;
 			margin-bottom:3px;
 		}
 		.story{

@@ -2,7 +2,7 @@
 	- @artists.each do |artist|
 		.row
 			.col-xs-2
-				%h5= artist.name
+				.artist-name= artist.name
 			.col-xs-6
 				- artist.stories.featured.each do |story|
 					.story
