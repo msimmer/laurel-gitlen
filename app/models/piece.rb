@@ -20,7 +20,6 @@ class Piece < ActiveRecord::Base
   end
   
   def attach_image
-    #AttachPhotoJob.new.async.perform(self.id)
     move_upload_to_paperclip
   end
   

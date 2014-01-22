@@ -1,6 +1,8 @@
-%ul#artists.list-unstyled
-	- @artists.each do |artist|
-		%li=link_to artist.name, artist_url(artist), id: "#{artist.name.gsub(/\s+/, "")}", class: "artist-link"
+#artist-wrap
+	#artist-inner
+		%ul#artists.list-unstyled
+			- @artists.each do |artist|
+				%li=link_to artist.name, artist_url(artist), id: "#{artist.name.gsub(/\s+/, "")}", class: "artist-link"
 #canvas
 #random-images
 	-@artists.each do |artist|

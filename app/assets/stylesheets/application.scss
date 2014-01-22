@@ -43,6 +43,16 @@
          url(font-path('relativelg-medium-italic.svg') + "#relativelg-medium") format('svg');
 }
 
+@font-face {
+    font-family: 'relative-10pitch';
+    src: url(font-path('relative-10pitch.eot'));
+    src: url(font-path('relative-10pitch.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('relative-10pitch.woff')) format('woff'), 
+         url(font-path('relative-10pitch.ttf'))  format('truetype'),
+         url(font-path('relative-10pitch.svg') + "#relative-10pitch") format('svg');
+}
+
+
 /* Exterior
 **********************/
 html, body{height:100%;}
@@ -190,10 +200,17 @@ body.exterior{
 	
 	.year{
 		font-size:10px;
+		font-family:"relative-10pitch";
+		
 	}
 	.exhibition{
 		.toggleable{
 			cursor:pointer;
+		}
+		.exhibition-info{
+			.text-right{
+				font-family:"relative-10pitch";
+			}
 		}
 		border-top:1px solid black;
 		font-size:12px;
@@ -287,22 +304,43 @@ body.exterior{
 	
 	#stories{
 		font-size:14px !important;
+		font-family:'relativelg-regular' !important;
 		.row{
 			border-bottom:1px solid black;
 			margin:0 0 20px !important;
-			padding-bottom:20px;
+			padding-bottom:10px;
 		}
 		.artist-name{
 			margin-left:-15px;
 		}
 		p, a{
+			font-family:'relativelg-regular' !important;
 			margin-bottom:3px;
 		}
 		.story{
+			font-family:'relativelg-regular' !important;
 			margin-bottom:10px;
 		}
 	}
 }
+
+#artist-wrap{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: table;
+  left: 0;
+}
+#artist-inner{
+	display:table-row;
+}
+#artists{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
 
 #canvas{
 	position:relative;
