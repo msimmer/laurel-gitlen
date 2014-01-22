@@ -5,7 +5,7 @@ class Admin::ExhibitionsController < ApplicationController
   layout 'admin'
   
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.all(include: :pieces)
   end
   
   def new
