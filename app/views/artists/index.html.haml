@@ -9,7 +9,9 @@
 		=image_tag(artist.pieces.first.image.url(:medium), class: "#{artist.name.gsub(/\s+/, "")}-img", data: {artist: artist.name.gsub(/\s+/, "")}) unless artist.pieces.blank?
 
 :javascript
-	if( $(window).width() > 640 ){
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	 
+	}else {
 		$('#random-images img').one('load', function () {
 			do {
 				var imgWidth = $(this).width(),
@@ -26,11 +28,6 @@
 				if(($(document).width() - posx) < randomNumber ){
 					posx = $(document).width() - randomNumber;
 				}
-			
-				console.log("imgHeight: " + imgHeight )
-				console.log("imgWidth: " + imgWidth )
-				console.log("x: " + posx )
-				console.log("y: " + posy )
 			
 				$(this)
 					.css({
