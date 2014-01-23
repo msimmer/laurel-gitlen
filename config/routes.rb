@@ -8,7 +8,8 @@ Gallery::Application.routes.draw do
     resources :stories
 
     resources :exhibitions do
-      post 'aws_callback', :on => :member
+      post 'aws_callback', on: :member
+      post 'press_release_callback', on: :member 
       get 'delete', on: :member
       
       resources :displays

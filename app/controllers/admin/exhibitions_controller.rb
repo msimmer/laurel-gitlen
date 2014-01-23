@@ -1,6 +1,6 @@
 class Admin::ExhibitionsController < ApplicationController
   before_filter :require_login
-  before_filter :get_exhibition, only: [:edit, :show, :update, :destroy]
+  before_filter :get_exhibition, only: [:edit, :show, :update, :destroy, :press_release_callback]
   
   layout 'admin'
   
@@ -23,6 +23,7 @@ class Admin::ExhibitionsController < ApplicationController
   end
   
   def edit
+    render "press_release" unless params[:press_release].blank?
   end
   
   def update
@@ -34,6 +35,10 @@ class Admin::ExhibitionsController < ApplicationController
   def aws_callback
   end
   
+  def press_release_callback
+    @exhibition.update_attribute(:press_release_url, press_release_params[:upload_url])
+  end
+  
   def destroy
     @exhibition.destroy
   end
@@ -41,6 +46,10 @@ class Admin::ExhibitionsController < ApplicationController
   protected
   def exhibition_params
     params.require(:exhibition).permit(:name, :begins, :ends, :description, :art_fair, :artists_ids => [])
+  end
+  
+  def press_release_params
+    params.require(:press_release).permit(:upload_url)
   end
   
   def get_exhibition

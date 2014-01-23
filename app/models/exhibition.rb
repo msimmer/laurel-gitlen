@@ -17,9 +17,13 @@ class Exhibition < ActiveRecord::Base
   end
   
   def safe_piece_order
-    piece_order.delete_if { |id|
-      !pieces.map{ |p| p.id }.include?(id)
-    }
+    begin
+      piece_order.delete_if { |id|
+        !pieces.map{ |p| p.id }.include?(id)
+      }
+    rescue
+      []
+    end
   end
   
 end

@@ -306,10 +306,11 @@ body.exterior{
 		font-size:14px !important;
 		font-family:'relativelg-regular' !important;
 		.row{
-			margin:0 0 20px !important;
+			margin:0 !important;
 		}
 		.story:last-child{
-			padding-bottom:10px;
+			padding-bottom:15px;
+			margin-bottom:15px;
 			border-bottom:1px solid black;
 		}
 		.artist-name{

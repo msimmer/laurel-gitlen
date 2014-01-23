@@ -1,5 +1,5 @@
 %p
-	= s3_uploader_form callback_url: press_release_callback_admin_exhibition_url(@exhibition), callback_param: "exhibition[press_release_url]", id: "s3-uploader" do
+	= s3_uploader_form callback_url: press_release_callback_admin_exhibition_url(@exhibition), callback_param: "press_release[upload_url]", id: "s3-uploader" do
 		%span.btn.btn-default.fileinput-button
 			%span Add Press Release
 			= file_field_tag :file, multiple: true

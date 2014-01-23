@@ -3,16 +3,17 @@
 		.col-xs-2
 			%h3=@artist.name
 			%ul.list-unstyled
-				%li=link_to 'Selected Work', '#'
+				%li=link_to 'Selected Work', artist_url(@artist, slide: 0), data: { remote: true }
 				-unless @artist.exhibitions.blank? 
 					%li=link_to 'Exhibitions', '#', class: "artist-exhibitions-link"
 					%li
 						%ul#artist-exhibitions.list-unstyled
 							-@artist.exhibitions.each do |exhibition|
-								%li=link_to exhibition.name, exhibition_url(exhibition)
+								%li=link_to exhibition.name, exhibition_url(exhibition, slide: 0), data: { remote: true }
 
 				%li=link_to 'Press', '#'
-				%li=link_to 'CV', '#'
+				-unless @artist.cv_url.blank?
+					%li=link_to 'CV', @artist.cv_url, target: "_blank"
 		.col-xs-10
 			.image-thumbs
 				-unless @artist.pieces.blank?

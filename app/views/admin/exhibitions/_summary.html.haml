@@ -7,6 +7,6 @@
 	%p=@exhibition.description
 	%p=raw @artists.map { |a| a.name }.join(" &mdash; ")
 	%p
-		%strong= @exhibition.press_release_url.blank? ? "No Press Release" : link_to( "Press Release", @exhibition.press_release_url, target: "_blank")
+		%strong#press-release-link= @exhibition.press_release_url.blank? ? "No Press Release" : link_to( "Press Release", @exhibition.press_release_url, target: "_blank")
 		|
 		=link_to "Upload Press Release", edit_admin_exhibition_url(@exhibition, press_release: "true"), data: {remote: "true"}
