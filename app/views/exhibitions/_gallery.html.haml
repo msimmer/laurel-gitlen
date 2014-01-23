@@ -6,8 +6,8 @@
 				-if @exhibition.artists.size == 1
 					%li= @exhibition.artists.first.name
 				%li=raw date_markup(@exhibition)
-				-if !@exhibition.press_release.blank?
-					%li=link_to "press release", @exhibition.press_release
+				-if !@exhibition.press_release_url.blank?
+					%li=link_to "press release", @exhibition.press_release_url, target: "_blank"
 		#gallery-header-right
 			=button_tag image_tag("close.png"), :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#gallery-slides

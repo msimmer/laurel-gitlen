@@ -7,7 +7,8 @@
 			= file_field_tag :file, multiple: true
 
 %script#template-upload{type: "text/x-tmpl"}
-	= form_for Piece.new, url: admin_exhibition_displays_url(@exhibition), :html => {:id => "file-{%=o.unique_id%}", :class => "upload"} do |f|
+	= form_for Piece.new, url: admin_exhibition_displays_url(@exhibition), :html => {:id => "file-{%=o.unique_id%}", :class => "upload"} do |f| 
+	
 		= f.hidden_field :upload_url, :class => 'url' 
 		= f.hidden_field :upload_key, :class => 'unique_id' 
 		

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131212055527) do
+ActiveRecord::Schema.define(version: 20140122013121) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 20131212055527) do
     t.date     "begins"
     t.date     "ends"
     t.string   "name"
-    t.string   "press_release"
+    t.string   "press_release_url"
     t.string   "piece_order"
     t.string   "artist_order"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "art_fair",      default: false
+    t.boolean  "art_fair",          default: false
   end
 
   create_table "pieces", force: true do |t|
@@ -64,9 +64,7 @@ ActiveRecord::Schema.define(version: 20131212055527) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "year"
-    t.string   "dimensions"
-    t.string   "edition_details"
+    t.boolean  "featured"
   end
 
   add_index "pieces", ["artist_id"], name: "index_pieces_on_artist_id"
@@ -74,9 +72,10 @@ ActiveRecord::Schema.define(version: 20131212055527) do
   create_table "stories", force: true do |t|
     t.text     "story"
     t.date     "date"
-    t.boolean  "featured",   default: false
+    t.boolean  "featured",          default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "press_release_url"
   end
 
   create_table "users", force: true do |t|

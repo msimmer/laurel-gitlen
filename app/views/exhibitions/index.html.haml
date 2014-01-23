@@ -11,7 +11,7 @@
 							%span=exhibition.artists.first.try(:name) if exhibition.artists.count == 1
 							%span.text-right="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
 						- unless exhibition.pieces.blank?
-							=render 'images', exhibition: exhibition
+							=render 'images', exhibition: exhibition, pieces: exhibition.pieces
 
 
 :javascript

@@ -8,6 +8,7 @@
 
 %script#template-upload{type: "text/x-tmpl"}
 	= form_for Piece.new, url: admin_artist_works_url(@artist), :html => {:id => "file-{%=o.unique_id%}", :class => "upload"} do |f| 
+		= f.hidden_field :featured, value: true
 		= f.hidden_field :upload_url, :class => 'url' 
 		= f.hidden_field :upload_key, :class => 'unique_id' 
 		="{%=o.name%}"
