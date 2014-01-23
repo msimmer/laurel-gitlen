@@ -26,4 +26,8 @@ class Exhibition < ActiveRecord::Base
     end
   end
   
+  def current?
+    self.begins < Date.today && Date.today < self.ends
+  end
+  
 end

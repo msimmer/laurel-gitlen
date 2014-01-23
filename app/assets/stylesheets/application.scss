@@ -204,18 +204,35 @@ body.exterior{
 		
 	}
 	.exhibition{
+		&:first-child{
+		}
+		&.art-fair{
+			color:#ccc;
+		}
 		.toggleable{
 			cursor:pointer;
+		}
+		.exhibition-description{
+			width:500px;
+			font-size:12px;
+			font-family:"relativelg-regular";
 		}
 		.exhibition-info{
 			.text-right{
 				font-family:"relative-10pitch";
 			}
 		}
-		border-top:1px solid black;
+		border-top:1px solid #ddd;
 		font-size:12px;
 		span{
-			width:33%;
+			width:30%;
+			&:first-child{
+				width:44%;
+			}
+			&:last-child{
+				width:auto;
+				float:right;
+			}
 			display:inline-block;
 		}
 	}
@@ -297,7 +314,7 @@ body.exterior{
 	#exhibitions{
 		margin-top:40px;
 		.exhibition, .year{
-			padding:3px 0;
+			padding:5px 0;
 			font-size:14px;
 		}
 	}
@@ -323,12 +340,15 @@ body.exterior{
 			margin-bottom:0;
 			padding-bottom:0;
 			margin-bottom:10px;
-			span, p, i, em, strong {
+			span, p, i, em, strong, a {
 				font-family:'relativelg-regular' !important;
 				font-size:14px !important;
 				line-height:20px !important;
 				margin-bottom:0;
 				padding-bottom:0;
+			}
+			a{
+				text-decoration:underline;
 			}
 		}
 	}
@@ -374,6 +394,9 @@ body.exterior{
 		display:table;
 		border-bottom: 1px solid black;
 		width:100%;
+		a{
+			color:#ccc !important;
+		}
 		#gallery-header-left{
 			display:table-cell;
 			vertical-align:middle;

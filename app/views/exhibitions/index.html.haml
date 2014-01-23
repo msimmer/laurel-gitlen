@@ -1,11 +1,11 @@
 #exhibitions
 	- @exhibitions_by_year.each do |year, exhibitions|
 		.row
-			.col-xs-1
+			.col-xs-2
 				.year=year
-			.col-xs-11
+			.col-xs-10
 				-exhibitions.each do |exhibition|
-					.exhibition{class: exhibition.art_fair ? "art-fair" : ""}
+					.exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?}"}
 						.exhibition-info{ class: exhibition.pieces.blank? ? "empty" : "toggleable"  }
 							%span=exhibition.name
 							%span=exhibition.artists.first.try(:name) if exhibition.artists.count == 1
