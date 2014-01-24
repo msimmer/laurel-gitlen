@@ -1,5 +1,4 @@
 .work-frame{id: "display_#{piece.id}", data: {'record-id' => piece.id}}
-	%p=piece.title
 	=image_tag piece.image.url(:thumb)
 	%ul.list-inline.list-unstyled
 		%li=link_to "Edit", edit_admin_exhibition_display_url(@exhibition, piece), data: {remote: true}

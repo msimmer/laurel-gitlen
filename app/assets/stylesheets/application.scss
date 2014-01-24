@@ -75,7 +75,7 @@ footer{
 }
 
 #inner{
-	margin:100px 30px 0;
+	margin:120px 30px 0;
 }
 body.exterior{
 	position:relative;
@@ -107,7 +107,7 @@ body.exterior{
 			font-size:20px;
 			line-height:20px;
 			margin:0;
-			top:15px;
+			top:25px;
 			left:30px;
 			position:fixed;
 			text-transform:uppercase;
@@ -122,6 +122,7 @@ body.exterior{
 			width:100%;
 			left:0;
 			min-width:960px;
+			top:25px;
 			ul{
 				width:403px;
 				margin:auto;
@@ -204,13 +205,24 @@ body.exterior{
 		
 	}
 	.exhibition{
-		&:first-child{
-		}
+		position:relative;
 		&.art-fair{
 			color:#ccc;
 		}
-		.toggleable{
+		&.toggleable{
 			cursor:pointer;
+			&:hover{
+				.exhibition-info{
+						background:#fafafa;
+				}
+				
+			}
+		}
+		.current{
+			position: absolute;
+			left: -70px;
+			top: 4px;
+			color: #333;
 		}
 		.exhibition-description{
 			width:500px;
@@ -218,6 +230,7 @@ body.exterior{
 			font-family:"relativelg-regular";
 		}
 		.exhibition-info{
+			padding:5px 0;
 			.text-right{
 				font-family:"relative-10pitch";
 			}
@@ -314,7 +327,6 @@ body.exterior{
 	#exhibitions{
 		margin-top:40px;
 		.exhibition, .year{
-			padding:5px 0;
 			font-size:14px;
 		}
 	}

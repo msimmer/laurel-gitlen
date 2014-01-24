@@ -5,8 +5,10 @@
 				.year=year
 			.col-xs-10
 				-exhibitions.each do |exhibition|
-					.exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?}"}
-						.exhibition-info{ class: exhibition.pieces.blank? ? "empty" : "toggleable"  }
+					.exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?} #{exhibition.pieces.blank? ? 'empty' : 'toggleable'}"}
+						- if exhibition.current?
+							%span.current current
+						.exhibition-info
 							%span=exhibition.name
 							%span=exhibition.artists.first.try(:name) if exhibition.artists.count == 1
 							%span.text-right="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"

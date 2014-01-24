@@ -65,8 +65,8 @@ $(document).on('click', '.get', function(){
 	}
 });
 
-$(document).on('click', '.exhibition-info.toggleable', function(){
-	var panel = $(this).siblings('.exhibition-images');
+$(document).on('click', '.toggleable', function(){
+	var panel = $(this).find('.exhibition-images');
 	panel.slideToggle().toggleClass('open');
 	$('.open').not(panel).slideToggle().toggleClass('open')
 	return false;
