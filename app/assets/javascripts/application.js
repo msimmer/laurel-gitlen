@@ -13,7 +13,7 @@ function centerSlides(){
 
 function centerSlide(image){
 	
-	var galleryHeight = $(window).height() - 50,
+	var galleryHeight = $(window).height() - 52,
 		maxHeight = Math.floor( galleryHeight * 0.8),
 		maxWidth = Math.floor($(window).width() * 0.8),
 		trueHeight = $(image).height(),

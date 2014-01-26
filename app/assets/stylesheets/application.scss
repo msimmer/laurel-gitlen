@@ -61,13 +61,13 @@ html, body{height:100%;}
 	width:100%;
 	min-width:960px;
 	overflow:auto;
-	padding-bottom:40px;
+	padding-bottom:45px;
 }
 footer{
 	font-family: 'simplon_bp_medium', monospace;
 	position:relative;
 	height:20px;
-	margin-top:-40px;
+	margin-top:-45px;
 	padding:10px 0;
 	text-align:center;
 	clear:both;
@@ -98,7 +98,7 @@ body.exterior{
 		position: fixed;
 		top: 0;
 		padding: 20px 0;
-		height: 60px;
+		height: 50px;
 		width: 100%;
 		background: white;
 		z-index: 1049;
@@ -107,7 +107,7 @@ body.exterior{
 			font-size:20px;
 			line-height:20px;
 			margin:0;
-			top:25px;
+			top:15px;
 			left:30px;
 			position:fixed;
 			text-transform:uppercase;
@@ -122,7 +122,7 @@ body.exterior{
 			width:100%;
 			left:0;
 			min-width:960px;
-			top:25px;
+			top:15px;
 			ul{
 				width:403px;
 				margin:auto;
@@ -402,7 +402,7 @@ body.exterior{
 	height:100%;
 	
 	#gallery-header{
-		height: 49px;
+		height: 52px;
 		display:table;
 		border-bottom: 1px solid black;
 		width:100%;
