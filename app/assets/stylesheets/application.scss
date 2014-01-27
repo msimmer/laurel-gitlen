@@ -122,7 +122,7 @@ body.exterior{
 			width:100%;
 			left:0;
 			min-width:960px;
-			top:15px;
+			top:17px;
 			ul{
 				width:403px;
 				margin:auto;
@@ -300,15 +300,15 @@ body.exterior{
 			opacity:0;
 		}
 		.description{
-			font-size:12px !important;
-			line-height:14px !important;
+			font-size:13px !important;
+			line-height:15px !important;
 			position:fixed;
 			bottom:30px;
 			left:30px;
 			text-align:left;
 			span, p, i, em, strong {
-				font-size:12px !important;
-				line-height:14px !important;
+				font-size:13px !important;
+				line-height:15px !important;
 				margin-bottom:0;
 				padding-bottom:0;
 			}
@@ -340,7 +340,7 @@ body.exterior{
 		.story:last-child{
 			padding-bottom:15px;
 			margin-bottom:15px;
-			border-bottom:1px solid black;
+			border-bottom:1px solid #ddd;
 		}
 		.artist-name{
 			margin-left:-15px;

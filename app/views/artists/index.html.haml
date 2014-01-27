@@ -18,7 +18,7 @@
 					imgHeight = $(this).height(),
 					posx = (Math.random() * $(document).width()).toFixed(),
 					posy = (Math.random() * $(document).height()).toFixed(),
-					randomNumber = Math.ceil(Math.random() * 100 + 100),
+					randomNumber = Math.ceil(Math.random() * 100 + 200),
 					artist_name = $(this).data("artist");
 				
 				if(($(document).height() - posy) < randomNumber ){
@@ -53,6 +53,10 @@
 		});
 	
 		$(".artist-link").mouseover(function(){
-			$("." + $(this).attr("id") + "-img").fadeIn();
+			$("#canvas").find("img:visible").each( function() {
+				var z = parseInt( $(this).css("z-index") );
+				$(this).css( "z-index", (z - 1) );
+			});
+			$("." + $(this).attr("id") + "-img").css("z-index", "-1").fadeIn();
 		});
 	}

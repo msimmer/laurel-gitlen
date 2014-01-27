@@ -4,8 +4,6 @@
 			.col-xs-2
 				.artist-name= artist.name
 			.col-xs-6
-				- artist.stories.featured.each do |story|
+				- artist.stories.featured.all(order: "created_at DESC").each do |story|
 					.story
 						=raw story.story
-	
-	=link_to 'See news archives >', '/archives' 
