@@ -26,5 +26,12 @@ $('#gallery-slides').cycle({
 $('.close').click(function(){
 	$("#gallery").fadeOut(function(){
 		$(this).remove();
+		$(document).unbind("keyup");
 	});
+});
+
+$(document).keyup(function (e) {
+	if (e.keyCode == 39) $('#gallery-slides').cycle('next');
+	if (e.keyCode == 37) $('#gallery-slides').cycle('prev');
+	if (e.keyCode == 27) $('.close').click();
 });

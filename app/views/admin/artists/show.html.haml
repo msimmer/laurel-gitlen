@@ -4,5 +4,5 @@
 		.container
 			=link_to 'Add Works', new_admin_artist_work_url(@artist), class: 'btn btn-default navbar-btn btn-small', data: {remote: 'true'}
 	#work-list
-	- @artist.pieces.each do |work|
+	- @artist.pieces.featured.each do |work|
 		=render "admin/works/single", piece: work

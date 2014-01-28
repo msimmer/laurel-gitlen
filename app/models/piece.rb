@@ -2,7 +2,8 @@ class Piece < ActiveRecord::Base
   belongs_to :artist
   has_and_belongs_to_many :exhibitions, join_table: :displays
   
-  before_save :attach_artist, unless: Proc.new{|a| a.artist_name.blank?} 
+  before_save :attach_artist, unless: Proc.new{|a| a.artist_name.blank?}
+  before_save :strip_description
   after_create :attach_image, if: :upload_url_changed?
   
   attr_accessor :artist_name
@@ -14,6 +15,18 @@ class Piece < ActiveRecord::Base
       medium: 'x480', 
       large: '960x720'
     }
+  
+  def strip_description
+    desc = self[:description]
+    loop do
+      ['<br>', '<br />', '<br >'].each do |pattern|
+        t = Regexp.escape(pattern)
+        desc.gsub!(/^(\s* #{pattern} \s*)+  /x, '')
+        desc.gsub!(/ (\s* #{pattern} \s*)+ $/x, '')
+      end
+      break if desc == self[:description]
+    end
+  end
   
   def attach_artist
     self.artist = Artist.find_or_create_by(name: artist_name)

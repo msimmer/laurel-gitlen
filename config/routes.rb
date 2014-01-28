@@ -30,4 +30,6 @@ Gallery::Application.routes.draw do
   get 'contact' => 'static#contact'
   get 'news' => 'static#news'
   get 'archives' => 'static#archives'
+  
+  get '*path' => redirect('/')
 end
