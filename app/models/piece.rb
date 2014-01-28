@@ -6,6 +6,8 @@ class Piece < ActiveRecord::Base
   before_save :strip_description
   after_create :attach_image, if: :upload_url_changed?
   
+  scope :featured, -> { where(featured: true) }
+  
   attr_accessor :artist_name
   
   has_attached_file :image,

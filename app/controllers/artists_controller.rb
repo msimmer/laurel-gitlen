@@ -5,6 +5,6 @@ class ArtistsController < ApplicationController
   
   def show
     @artist = Artist.includes(:pieces).find(params[:id])
-    @pieces = @artist.pieces.where(featured: true)
+    @pieces = @artist.pieces.featured
   end
 end
