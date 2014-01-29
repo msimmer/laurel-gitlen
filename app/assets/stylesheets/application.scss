@@ -64,7 +64,7 @@ html, body{height:100%;}
 	padding-bottom:45px;
 }
 footer{
-	font-family: 'relative-10pitch', monospace;
+	font-family: 'relativelg-regular';
 	font-size:15px;
 	position:relative;
 	height:20px;
@@ -73,6 +73,7 @@ footer{
 	text-align:center;
 	clear:both;
 	text-transform:uppercase;
+	color:#666;
 }
 
 #inner{
@@ -134,8 +135,8 @@ body.exterior{
 					
 					a{
 						font-size:15px;
-						color:#333;
-						font-family: 'relative-10pitch', monospace;
+						color:#666;
+						font-family: 'relativelg-regular';
 						text-transform:uppercase;
 						&:hover{
 							text-decoration:underline;
@@ -491,4 +492,7 @@ body.sorting .work-frame{
 }
 .jqte {
 	margin:10px 0 !important;
+}
+.numbers{
+  font-family: 'relative-10pitch' !important;
 }
