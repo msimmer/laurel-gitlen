@@ -13,50 +13,49 @@
 	 
 	}else {
 		$('#random-images img').one('load', function () {
-			do {
-				var imgWidth = $(this).width(),
-					imgHeight = $(this).height(),
-					posx = (Math.random() * $(document).width()).toFixed(),
-					posy = (Math.random() * $(document).height()).toFixed(),
-					randomNumber = Math.ceil(Math.random() * 200 + 100),
-					artist_name = $(this).data("artist");
-				
-				if(($(document).height() - posy) < randomNumber ){
-					posy = $(document).height() - randomNumber;
-				}
+			var imgWidth = $(this).width(),
+				imgHeight = $(this).height(),
+				posx = (Math.random() * $(document).width()).toFixed(),
+				posy = (Math.random() * $(document).height()).toFixed(),
+				randomNumber = Math.ceil(Math.random() * 200 + 100),
+				artistName = $(this).data("artist");
 			
-				if(($(document).width() - posx) < randomNumber ){
-					posx = $(document).width() - randomNumber;
-				}
-			
-				$(this)
-					.css({
-						"top": posy + "px",
-						"left": posx + "px",
-						"position":"fixed",
-						"display":"none",
-						"max-height": randomNumber + "px",
-						"max-width": randomNumber + "px",
-						"width": "auto",
-						"height": "auto",
-						"cursor": "pointer",
-						"z-index": "-1"
-					})
-					.appendTo("#canvas")
-					.click( function() {
-						window.location.href = $("#" + artist_name).attr("href");
-					});
+			if(($(document).height() - posy) < randomNumber ){
+				posy = $(document).height() - randomNumber;
 			}
-			while ($("#canvas").find("img").overlaps().length !== 0);
+		
+			if(($(document).width() - posx) < randomNumber ){
+				posx = $(document).width() - randomNumber;
+			}
+			
+			$(this)
+				.css({
+					"top": posy + "px",
+					"left": posx + "px",
+					"position":"fixed",
+					"display":"none",
+					"max-height": randomNumber + "px",
+					"max-width": randomNumber + "px",
+					"width": "auto",
+					"height": "auto",
+					"cursor": "pointer",
+					"z-index": "-1"
+				})
+				.appendTo("#canvas")
+				.click( function() {
+					window.location.href = $("#" + artistName).attr("href");
+				});
+
+			$("#" + artistName).mouseover( function(event) {
+				$("#canvas").find("img:visible").each( function(index, elem) {
+					var z = parseInt( $(elem).css("z-index") );
+					$(elem).css( "z-index", (z - 1) );
+				});
+
+				$("." + artistName + "-img").css("z-index", "-1").fadeIn();
+			});
+
 		}).each(function () {
 			if (this.complete) $(this).load();
-		});
-	
-		$(".artist-link").mouseover(function(){
-			$("#canvas").find("img:visible").each( function() {
-				var z = parseInt( $(this).css("z-index") );
-				$(this).css( "z-index", (z - 1) );
-			});
-			$("." + $(this).attr("id") + "-img").css("z-index", "-1").fadeIn();
 		});
 	}
