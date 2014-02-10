@@ -4,5 +4,16 @@ class Artist < ActiveRecord::Base
   has_and_belongs_to_many :stories
 
   scope :on_roster, -> { where(gallery_roster: true) }
+  serialize :piece_order
+
+  def safe_piece_order
+    begin
+      piece_order.delete_if { |id|
+        !pieces.map{ |p| p.id }.include?(id)
+      }
+    rescue
+      []
+    end
+  end
   
 end

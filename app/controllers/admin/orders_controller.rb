@@ -1,20 +1,22 @@
 class Admin::OrdersController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, :get_orderable
 
   def new
-    @exhibition = Exhibition.find(params[:exhibition_id])
     @order = params[:order]
   end
   
   def create
-    @exhibition = Exhibition.find(params[:exhibition_id])
-    unless params[:order].blank? || params[:order_string].blank?
-      if params[:order] == 'works'
-        @exhibition.piece_order = params[:order_string].split(",").map{ |s| s.to_i }
-      elsif params[:order] == 'artists'
-        @exhibition.artist_order = params[:order_string].split(",").map{ |s| s.to_i }
-      end
-      @exhibition.save
+    @orderable.piece_order = params[:order_string].split(",").map{ |s| s.to_i }
+    @orderable.save
+  end
+  
+  private
+  
+  def get_orderable
+    if params[:artist_id]
+      @orderable = Artist.find(params[:artist_id])
+    elsif params[:exhibition_id]
+      @orderable = Exhibition.find(params[:exhibition_id])
     end
   end
 end

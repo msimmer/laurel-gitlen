@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122013121) do
+ActiveRecord::Schema.define(version: 20140210145256) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140122013121) do
     t.datetime "updated_at"
     t.string   "cv_url"
     t.boolean  "gallery_roster", default: true
+    t.string   "piece_order"
   end
 
   create_table "artists_exhibitions", force: true do |t|

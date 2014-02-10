@@ -17,5 +17,5 @@
 		.col-xs-10
 			.image-thumbs
 				-unless @pieces.blank?
-					-@pieces.each_with_index do |id, index| 
+					-@artist.safe_piece_order.each_with_index do |id, index|
 						=link_to image_tag(@artist.pieces.find_by_id(id).image.url(:thumb)), artist_url(@artist, slide: index), data: { remote: true }

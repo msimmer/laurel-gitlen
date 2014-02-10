@@ -6,6 +6,10 @@ class Admin::WorksController < ApplicationController
   
   def create
     @piece = @artist.pieces.create(piece_params)
+    piece_order = @artist.piece_order || []
+    piece_order << @piece.id
+    @artist.piece_order = piece_order
+    @artist.save
   end
   
   def edit
@@ -20,6 +24,8 @@ class Admin::WorksController < ApplicationController
   def destroy
     @piece = @artist.pieces.find(params[:id])
     @piece.destroy
+    @artist.piece_order.delete(@piece.id) 
+    @artist.save
   end
   
   protected

@@ -6,5 +6,5 @@
 			=link_to 'Order Works', new_admin_exhibition_order_url(@exhibition, order: 'works'), class: 'btn btn-default navbar-btn btn-small get works-order-link'
 	#work-list
 		-unless @exhibition.pieces.blank?
-			- @exhibition.piece_order.each do |id|
+			- @exhibition.safe_piece_order.each do |id|
 				=render "admin/displays/single", piece: @exhibition.pieces.find(id)

@@ -8,7 +8,8 @@
 		#gallery-header-right
 			=button_tag image_tag("close.png"), :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
 	#gallery-slides
-		-@pieces.each do |piece|
+		-@artist.safe_piece_order.each do |id|
+			-piece = Piece.find(id)
 			.slide
 				=image_tag piece.image.url(:large)
 				.description

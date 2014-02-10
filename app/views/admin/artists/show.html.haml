@@ -3,6 +3,8 @@
 	.navbar.navbar-default
 		.container
 			=link_to 'Add Works', new_admin_artist_work_url(@artist), class: 'btn btn-default navbar-btn btn-small', data: {remote: 'true'}
+			=link_to 'Order Works', new_admin_artist_order_url(@artist), class: 'btn btn-default navbar-btn btn-small get works-order-link'
 	#work-list
-	- @artist.pieces.featured.each do |work|
-		=render "admin/works/single", piece: work
+		-unless @artist.pieces.blank?
+			- @artist.safe_piece_order.each do |id|
+				=render "admin/works/single", piece: @artist.pieces.find(id)
