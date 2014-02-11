@@ -20,6 +20,7 @@ Gallery::Application.routes.draw do
       post 'aws_callback', on: :member
       post 'cv_callback', on: :member
       resources :works
+      resources :orders
     end
     
   end
