@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210145256) do
+ActiveRecord::Schema.define(version: 20140223153654) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20140210145256) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cv_url"
-    t.boolean  "gallery_roster", default: true
-    t.string   "piece_order"
+    t.boolean  "gallery_roster",             default: true
+    t.text     "piece_order",    limit: 255
   end
 
   create_table "artists_exhibitions", force: true do |t|
@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20140210145256) do
     t.date     "ends"
     t.string   "name"
     t.string   "press_release_url"
-    t.string   "piece_order"
+    t.text     "piece_order",       limit: 255
     t.string   "artist_order"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "art_fair",          default: false
+    t.boolean  "art_fair",                      default: false
   end
 
   create_table "pieces", force: true do |t|
