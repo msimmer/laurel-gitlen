@@ -1,5 +1,5 @@
 class Admin::ArtistsController < ApplicationController
-  before_filter :get_artist, only: [:edit, :show, :update, :aws_callback, :cv_callback, :press_callback]
+  before_filter :get_artist, only: [:edit, :show, :update, :aws_callback, :cv_callback, :press_callback, :destroy]
 
   before_filter :require_login
   layout 'admin'
@@ -38,6 +38,10 @@ class Admin::ArtistsController < ApplicationController
   
   def press_callback
     @artist.update_attribute(:press_url, press_params[:url])
+  end
+  
+  def destroy
+    @artist.destroy
   end
   
   protected

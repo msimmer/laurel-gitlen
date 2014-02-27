@@ -10,7 +10,10 @@
 			%th Links
 	%tbody
 		- @artists.each do |artist|
-			%tr{class: "admin-artist #{ artist.gallery_roster ? 'roster' : 'non-roster' }"}
+			%tr{class: "admin-artist #{ artist.gallery_roster ? 'roster' : 'non-roster' }", id: "admin-artist-#{artist.id}"}
 				%td= artist.name
 				%td= artist.gallery_roster ? 'Yes' : 'No'
-				%td= link_to 'Edit', admin_artist_path(artist)
+				%td
+					= link_to 'Delete', admin_artist_path(artist), data: {method: "delete", remote: "true", confirm: "Are you sure?"}
+					|
+					= link_to 'Edit', admin_artist_path(artist)
