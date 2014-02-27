@@ -41,11 +41,8 @@
 					"cursor": "pointer",
 					"z-index": "-1"
 				})
-				.appendTo("#canvas")
-				.click( function() {
-					window.location.href = $("#" + artistName).attr("href");
-				});
-
+				.appendTo("#canvas");
+			
 			$("#" + artistName).mouseover( function(event) {
 				$("#canvas").find("img:visible").each( function(index, elem) {
 					var z = parseInt( $(elem).css("z-index") );

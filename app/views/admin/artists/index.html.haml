@@ -1,11 +1,16 @@
 .navbar.navbar-default
 	.container
 		=link_to 'Add Artist', new_admin_artist_url, :class => 'btn btn-default navbar-btn btn-small'
-
-- @artists.each do |artist|
-	.panel.panel-default
-		.panel-heading
-			=artist.name
-		.panel-body
-			%ul.list-inline
-				%li=link_to 'Edit', admin_artist_url(artist)
+		=link_to 'Show All Artists', "#", id: "toggle-roster-artists", :class => 'btn btn-default navbar-btn btn-small'
+%table.table
+	%thead
+		%tr
+			%th Artist Name
+			%th On Roster
+			%th Links
+	%tbody
+		- @artists.each do |artist|
+			%tr{class: "admin-artist #{ artist.gallery_roster ? 'roster' : 'non-roster' }"}
+				%td= artist.name
+				%td= artist.gallery_roster ? 'Yes' : 'No'
+				%td= link_to 'Edit', admin_artist_path(artist)

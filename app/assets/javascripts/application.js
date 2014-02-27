@@ -101,3 +101,17 @@ $(document).on('ajax:complete', 'form', function(event, xhr, settings) {
 	
 	$("#modal-form").removeClass("working");
 });
+
+$(document).on('click', '#toggle-roster-artists', function() {
+	var $toggler = $(this);
+	$('.admin-artist.non-roster').toggle();
+	if( $toggler.hasClass('showing') ){
+		$toggler.removeClass('showing');
+		$toggler.html('Show All Artists');
+		return false;
+	}else{
+		$toggler.addClass('showing');
+		$toggler.html('Hide Extra Artists');
+		return false;
+	}
+});
