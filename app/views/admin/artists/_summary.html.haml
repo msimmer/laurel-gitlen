@@ -6,3 +6,7 @@
 		%strong= @artist.cv_url.blank? ? "No CV" : link_to( "Preview CV", @artist.cv_url, target: "_blank")
 		|
 		=link_to "Upload CV", edit_admin_artist_url(@artist, cv: "true"), data: {remote: "true"}
+	%p
+		%strong= @artist.press_url.blank? ? "No Press PDF" : link_to( "Preview Press PDF", @artist.press_url, target: "_blank")
+		|
+		=link_to "Upload Press PDF", edit_admin_artist_url(@artist, press: "true"), data: {remote: "true"}

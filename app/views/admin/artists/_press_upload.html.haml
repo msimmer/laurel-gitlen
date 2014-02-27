@@ -1,0 +1,10 @@
+%p
+	= s3_uploader_form callback_url: press_callback_admin_artist_url(@artist), callback_param: "press[upload_url]", id: "s3-uploader" do
+		%span.btn.btn-default.fileinput-button
+			%span Choose Press PDF
+			= file_field_tag :file
+
+%script#template-upload{type: "text/x-tmpl"}
+	%h5 {%= o.name %}
+	%p.progress
+		.progress-bar.bar{style: "width: 0%", role: 'progress-bar'}

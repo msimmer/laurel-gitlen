@@ -1,0 +1,10 @@
+$('<%=j render "/modal_wrapper", :title => "Edit Work Details", :body => "press_upload", :action => "Save" %>').appendTo('body');
+
+$('#modal-form').modal('show').
+	on('hidden.bs.modal', function(){
+	$(this).remove();
+});
+
+$('#s3-uploader').S3Uploader({
+	remove_completed_progress_bar: false
+});

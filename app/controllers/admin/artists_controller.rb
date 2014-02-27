@@ -1,11 +1,11 @@
 class Admin::ArtistsController < ApplicationController
-  before_filter :get_artist, only: [:edit, :show, :update, :aws_callback, :cv_callback]
+  before_filter :get_artist, only: [:edit, :show, :update, :aws_callback, :cv_callback, :press_callback]
 
   before_filter :require_login
   layout 'admin'
   
   def index
-    @artists = Artist.all
+    @artists = Artist.order(name: :asc)
   end
   
   def new
@@ -22,6 +22,7 @@ class Admin::ArtistsController < ApplicationController
   
   def edit
     render "cv" unless params[:cv].blank?
+    render "press" unless params[:press].blank?
   end
   
   def update
@@ -35,12 +36,20 @@ class Admin::ArtistsController < ApplicationController
     @artist.update_attribute(:cv_url, cv_params[:url])
   end
   
+  def press_callback
+    @artist.update_attribute(:press_url, press_params[:url])
+  end
+  
   protected
   def artist_params
     params.require(:artist).permit(:name, :gallery_roster)
   end
   
   def cv_params
+    params.permit(:url)
+  end
+
+  def press_params
     params.permit(:url)
   end
   

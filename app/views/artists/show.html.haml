@@ -11,7 +11,8 @@
 							-@artist.exhibitions.each do |exhibition|
 								%li=link_to exhibition.name, exhibition_url(exhibition, slide: 0), data: { remote: true }
 
-				%li=link_to 'Press', '#'
+				-unless @artist.press_url.blank?
+					%li=link_to 'Press', @artist.press_url, target: "_blank"
 				-unless @artist.cv_url.blank?
 					%li=link_to 'CV', @artist.cv_url, target: "_blank"
 		.col-xs-10

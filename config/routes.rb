@@ -19,6 +19,7 @@ Gallery::Application.routes.draw do
     resources :artists do
       post 'aws_callback', on: :member
       post 'cv_callback', on: :member
+      post 'press_callback', on: :member
       resources :works
       resources :orders
     end
