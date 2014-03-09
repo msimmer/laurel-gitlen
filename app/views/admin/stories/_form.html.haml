@@ -1,4 +1,10 @@
+= s3_uploader_form callback_url: aws_callback_admin_stories_url, callback_param: "upload_url", id: "news-upload" do
+	%span.btn.btn-default.fileinput-button
+		%span= @story.press_release_url.blank? ? "Add PDF" : "Change PDF"
+		= file_field_tag :file, multiple: true
+
 =form_for [:admin, @story], html: {class: "form"} do |f|
+	= f.hidden_field :press_release_url, id: "news-upload-field"
 	.control-group
 		=f.label :date
 		=f.date_select :date
@@ -37,4 +43,17 @@
 		title: false,
 		ul: false,
 		p: false
+	});
+	
+	$('#news-upload').S3Uploader({
+		remove_completed_progress_bar: false
+	});
+	
+	$('#news-upload').bind('s3_uploads_start', function(){
+		$('#news-upload').find('span').html('Uplading...');
+	});
+
+	$('#news-upload').bind('s3_uploads_complete', function(event, content){
+		$('#news-upload').find('span').html('Upload Complete');
+		$('#news-upload-field').val(content.url)
 	});

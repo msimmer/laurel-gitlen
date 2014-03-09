@@ -14,7 +14,7 @@
 		-@exhibition.safe_piece_order.each do |id|
 			-piece = Piece.find(id)
 			.slide
-				=image_tag piece.image.url(:large)
+				=image_tag piece.image.url(:large), class: 'next'
 				.description
 					%br
 					-if piece.artist.try(:name)
@@ -22,4 +22,4 @@
 						%br
 					=raw piece.description
 	#prev=link_to raw('&#8592;'), '#'
-	#next=link_to raw('&#8594;'), '#'
+	#next.next=link_to raw('&#8594;'), '#'

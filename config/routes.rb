@@ -5,7 +5,10 @@ Gallery::Application.routes.draw do
   
   namespace :admin do
     resources :sessions, only: :create
-    resources :stories
+    
+    resources :stories do
+      post 'aws_callback', on: :collection
+    end
 
     resources :exhibitions do
       post 'aws_callback', on: :member
@@ -27,11 +30,14 @@ Gallery::Application.routes.draw do
   end
   
   resources :exhibitions, :artists
-  root 'static#splash'
+  
+  get 'news' => 'stories#index'
+  get 'story/:id' => 'stories#show'
+  
   get 'splash' => 'static#splash'
   get 'contact' => 'static#contact'
-  get 'news' => 'static#news'
   get 'archives' => 'static#archives'
   
+  root 'static#splash'
   get '*path' => redirect('/')
 end

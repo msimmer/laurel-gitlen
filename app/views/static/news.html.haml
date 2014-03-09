@@ -1,9 +1,0 @@
-#stories
-	- @artists.each do |artist|
-		.row
-			.col-xs-2
-				.artist-name= artist.name
-			.col-xs-6
-				- artist.stories.featured.all(order: "created_at DESC").each do |story|
-					.story
-						=raw story.story

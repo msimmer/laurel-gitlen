@@ -12,7 +12,7 @@ $(".slide img").one('load', function() {
 
 $('#gallery-slides').cycle({
 	prev: $('#prev'),
-	next: $('#next'),
+	next: $('.next'),
 	timeout: 0,
 	startingSlide: <%=j params[:slide] %>,
 	before: function(currSlideElement, nextSlideElement, options, forwardFlag){

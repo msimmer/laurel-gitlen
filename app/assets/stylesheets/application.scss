@@ -65,7 +65,7 @@ html, body{height:100%;}
 }
 footer{
 	font-family: 'relativelg-regular';
-	font-size:15px;
+	font-size:14px;
 	position:relative;
 	height:20px;
 	margin-top:-45px;
@@ -73,7 +73,8 @@ footer{
 	text-align:center;
 	clear:both;
 	text-transform:uppercase;
-	color:#666;
+	color:black;
+	letter-spacing:1px;
 }
 
 #inner{
@@ -126,7 +127,7 @@ body.exterior{
 			min-width:960px;
 			top:18px;
 			ul{
-				width:414px;
+				width:420px;
 				margin:auto;
 				z-index:99;
 				li{
@@ -134,10 +135,11 @@ body.exterior{
 					padding:0 23px;
 					
 					a{
-						font-size:15px;
-						color:#666;
+						font-size:14px;
+						color:black;
 						font-family: 'relativelg-regular';
 						text-transform:uppercase;
+						letter-spacing:1px;
 						&:hover{
 							text-decoration:underline;
 						}
@@ -317,7 +319,9 @@ body.exterior{
 		}
 	}
 	#artists{
-		font-size:18px;
+	  font-size:14px;
+	  text-transform:uppercase;
+	  letter-spacing:1px;
 	}
 	#artist-exhibitions{
 		display:none;
@@ -498,4 +502,9 @@ body.sorting .work-frame{
 }
 .admin-artist.non-roster{
 	display:none;
+}
+#news-upload{
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #efefef;
 }

@@ -31,8 +31,7 @@ function centerSlide(image){
 		newHeight = maxHeight;
 		newWidth = Math.floor( (maxHeight / trueHeight) * trueWidth );
 	}
-	
-	
+
 	top = Math.floor( (galleryHeight - newHeight) / 2 );
 
 	$(image).css({

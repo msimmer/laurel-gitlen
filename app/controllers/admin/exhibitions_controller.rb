@@ -5,7 +5,7 @@ class Admin::ExhibitionsController < ApplicationController
   layout 'admin'
   
   def index
-    @exhibitions = Exhibition.all(include: :pieces)
+    @exhibitions = Exhibition.order("begins DESC").all(include: :pieces)
   end
   
   def new

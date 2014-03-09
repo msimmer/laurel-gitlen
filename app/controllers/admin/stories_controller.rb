@@ -26,8 +26,12 @@ class Admin::StoriesController < ApplicationController
     redirect_to admin_stories_url
   end
   
+  def aws_callback
+    render nothing: true
+  end
+  
   protected
   def story_params
-    params.require(:story).permit(:story, :date, :featured, :artists_ids => [])
+    params.require(:story).permit(:story, :date, :featured, :press_release_url, :artists_ids => [])
   end
 end
