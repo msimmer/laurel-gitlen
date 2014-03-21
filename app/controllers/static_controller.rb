@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
   def splash
-    @exhibition = Exhibition.where("begins <= ?", Date.today).order("begins DESC").first
+    @exhibition = Exhibition.find(35)
   end
   
   def contact
