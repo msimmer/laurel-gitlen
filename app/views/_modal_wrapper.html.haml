@@ -1,11 +1,11 @@
 #modal-form.modal.fade{:tabindex => '-1', :role => 'dialog', 'aria-hidden' => "true"}
-	.modal-dialog
-		.modal-content
-			.modal-header
-				=button_tag 'x', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
-				%h3=title
-			.modal-body
-				=render body
-			.modal-footer
-				=button_tag 'Close', :class => 'btn', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
-				=button_tag (begin action rescue 'Submit' end), class: 'btn btn-primary', id: 'modal-form-submit'
+  .modal-dialog
+    .modal-content
+      .modal-header
+        =button_tag 'x', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
+        %h3=title
+      .modal-body
+        =render body
+      .modal-footer
+        =button_tag 'Close', :class => 'btn', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'
+        =button_tag (begin action rescue 'Submit' end), class: 'btn btn-primary', id: 'modal-form-submit'

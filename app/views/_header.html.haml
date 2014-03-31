@@ -1,9 +1,13 @@
 %header
-	%h1
-		=link_to image_tag("Laurel-Gitlen_logo.png"), '/'
-	%nav
-		%ul.list-unstyled.list-inline
-			%li=link_to 'Artists', '/artists', class: controller_name == 'artists' ? "active" : ""
-			%li=link_to 'Exhibitions', '/exhibitions', class: controller_name == 'exhibitions' ? "active" : ""
-			%li=link_to 'News', '/news', class: (current_page?('/news') || current_page?('/archives')) ? "active" : ""
-			%li=link_to 'Contact', '/contact', class: current_page?('/contact') ? "active" : ""
+  .container
+    .row
+      .col-md-2
+        %h1
+          =link_to image_tag("Laurel-Gitlen_logo.png"), '/'
+      .col-md-8
+        %nav
+          %ul.list-unstyled.list-inline
+            %li=link_to 'Artists', '/artists', class: controller_name == 'artists' ? "active" : ""
+            %li=link_to 'Exhibitions', '/exhibitions', class: controller_name == 'exhibitions' ? "active" : ""
+            %li=link_to 'News', '/news', class: (current_page?('/news') || current_page?('/archives')) ? "active" : ""
+            %li=link_to 'Contact', '/contact', class: current_page?('/contact') ? "active" : ""
