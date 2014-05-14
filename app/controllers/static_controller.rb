@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
   def splash
-    @exhibition = Exhibition.find(35)
+    @exhibition = Exhibition.find(54)
   end
   
   def contact
