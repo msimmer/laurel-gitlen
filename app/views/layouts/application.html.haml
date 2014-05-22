@@ -10,9 +10,12 @@
     = csrf_meta_tags
 %body.exterior
   =render '/header'
-  #main
-    #inner
-      = yield
+  - if current_page?('/')
+    = yield
+  -else 
+    #main
+      #inner.container-fluid
+        = yield
   =render '/footer'  
   
   

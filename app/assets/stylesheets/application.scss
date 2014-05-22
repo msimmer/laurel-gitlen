@@ -56,30 +56,36 @@
 /* Exterior
 **********************/
 html, body{
-  height:100%;
+  height: 100%;
 }
 #main{
+  min-height:100%;
   width:100%;
-  min-width:960px;
   overflow:auto;
-  padding-bottom:45px;
+  margin-bottom:-40px;
+}
+#main:after {
+  content: "";
+  display: block;
+  height:40px;
 }
 footer{
   font-family: 'relativelg-regular';
   font-size:14px;
   position:relative;
   height:20px;
-  margin-top:-45px;
   padding:10px 0;
   text-align:center;
   clear:both;
   text-transform:uppercase;
   color:black;
   letter-spacing:1px;
+  @media (max-width: 480px){
+    font-size: 12px;
+  }
 }
-
 #inner{
-  margin:120px 30px 0;
+  padding:55px 20px 0;
 }
 body.exterior{
   position:relative;
@@ -105,6 +111,7 @@ nav{
   background:white;
 }
 
+// --- Header and nav ----
 header{
   background: white;
   z-index: 1049;
@@ -113,145 +120,125 @@ header{
   background: white;
   text-align: center;
   border: none;
+  
   .navbar-brand{
     font-family: 'simplon_bp_medium';
     text-transform: uppercase;
+    font-size:22px;
     color: black;
     letter-spacing: 1px;
-    width: 165px;
+    width: 210px;
   }
   .navbar-nav{
     float: none;
     display: inline-block;
     @media (min-width: 768px){
-      margin-left: -165px;
+      margin-left: -210px;
     }
   }
-  .navbar-nav > li > a{
-    color: black;
-    font-family: 'relativelg-regular';
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    .active &{
+  
+  .navbar-nav > li{
+    &.active > a{
+      color: black;
+      background: white;
       text-decoration: underline;
-    }
-    &:hover{
-      text-decoration: underline;
-    }
-  }
-}
-
-
-/*
-  h1{
-    float:left;
-    font-size:20px;
-    text-transform:uppercase;
-    font-weight:bold;
-    z-index:100;
-    a{
-      display:block;
-    }
-  }
-  nav{
-    width:100%;
-    left:0;
-    min-width:960px;
-    top:18px;
-    ul{
-      width:420px;
-      margin:auto;
-      z-index:99;
-      li{
-        font-weight:100;
-        padding:0 23px;
-        
-        a{
-          font-size:14px;
-          color:black;
-          font-family: 'relativelg-regular';
-          text-transform:uppercase;
-          letter-spacing:1px;
-          &:hover{
-            text-decoration:underline;
-          }
-          &.active{
-            font-style:underline; 
-          }
-        }
-        
+      &:hover{
+        color: black;
+        background: white;
       }
-      li:first-child{padding-left:0}
-      li:last-child{padding-right:0}
     }
-    
-  }
+    > a{
+      color: black;
+      background: white;
+      font-family: 'relativelg-regular';
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      &:hover{
+        background: white;
+        text-decoration: underline;
+      }
+    }
+  } 
 }
-*/
+
+
+
+
+//--- Splash page ---
 #splash{
   width:100%;
   height:100%;
-  min-width:960px !important;
-  min-height:480px !important;
+  padding-top:55px;
   font-family:"relativelg-regular";
-  font-size:44px;
-  line-height:52px;
+  font-size:26px;
+  line-height:38px;
+  @media (min-width: 768px){
+    font-size:44px;
+    line-height:52px;
+  }
+  @media (max-width: 480px){
+    font-size: 18px;
+    line-height: 26px;
+  }
   display:table;
   left:0;
   top:0;
-  
-  #splash-wrap{
-    display:table-row;
-    #splash-content{
-      display:table-cell;
-      vertical-align:middle;
-      text-align:center;
-      color:#000;
-      a{
-        color:#000;
-      }
-    }
-  }
-  h2{
-    height:50px;
-    left:0;
-    &:nth-child(2){
-      top:50%;
-      margin-top:-25px;
-    }
-    &:first-child{
-      bottom:50%;
-      margin-bottom:75px;
-    }
-    &:last-child{
-      top:50%;
-      margin-top:75px;
-    }
+  margin-top: -20px;
+}
+#splash-wrap{
+  display:table-row;
+}
+#splash-content{
+  display:table-cell;
+  vertical-align:middle;
+  text-align:center;
+  color:#000;
+  a{
+    color:#000;
   }
 }
+
+
+
+
+
 
 #contact{
   margin-top:60px;
+  @media (max-width: 768px){
+    text-align:center;
+    font-size:16px;
+    div::after{
+      content: "•";
+      display: block;
+      margin:15px;
+      font-size:20px;
+    }
+  }
 }
 
-.year{
-  font-size:10px;
+.exhibition-year{
+  padding-top:6px;
+  font-size:12px;
   font-family:"relative-10pitch";
-  
+  @media (max-width:768px){
+    text-align:center;
+    font-size:16px;
+    margin-top:40px;
+  }
 }
 .exhibition{
   position:relative;
+  border-top:1px solid #ddd;
+  font-size:12px;
+
   &.art-fair{
     color:#ccc;
   }
   &.toggleable{
     cursor:pointer;
-    &:hover{
-      .exhibition-info{
-          background:#fafafa;
-      }
-      
+    &:hover .exhibition-info{
+      background:#fafafa;
     }
   }
   .current{
@@ -260,33 +247,30 @@ header{
     top: 4px;
     color: #333;
   }
-  .exhibition-description{
-    width:500px;
-    font-size:12px;
-    font-family:"relativelg-regular";
-  }
-  .exhibition-info{
-    padding:5px 0;
-    .text-right{
-      font-family:"relative-10pitch";
-    }
-  }
-  border-top:1px solid #ddd;
+}
+.exhibition-description{
   font-size:12px;
-  span{
-    width:30%;
-    &:first-child{
-      width:44%;
-    }
+  font-family:"relativelg-regular";
+}
+.exhibition-info{
+  padding:5px 0;
+  
+  .col-sm-4{
     &:last-child{
-      width:auto;
-      float:right;
+      text-align:right;
+      @media (max-width:768px){
+        text-align:left;
+      }
     }
-    display:inline-block;
+    
   }
 }
+
 .exhibition-images{
   display:none;
+  @media (max-width:768px){
+    text-align: center;
+  }
 }
 .image-thumbs{
   margin:10px 0;
@@ -368,18 +352,14 @@ header{
 }
   
 #stories{
+  margin-top:40px;
   font-size:14px !important;
   font-family:'relativelg-regular' !important;
-  .row{
-    margin:0 !important;
-  }
+
   .story:last-child{
     padding-bottom:15px;
     margin-bottom:15px;
     border-bottom:1px solid #ddd;
-  }
-  .artist-name{
-    margin-left:-15px;
   }
   .story{
     font-family:'relativelg-regular' !important;
@@ -430,10 +410,10 @@ header{
 #gallery{
   z-index:1050;
   top:0;
+  left:0;
   position:fixed;
   background:white;
   width:100%;
-  border-top:1px dotted black;
   height:100%;
   
   #gallery-header{

@@ -9,6 +9,10 @@ class Exhibition < ActiveRecord::Base
 
   attr_accessor :artists_ids
   
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+  
   def save_with_artists
     if valid?
       self.artists = Artist.where(id: artists_ids)

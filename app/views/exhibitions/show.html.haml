@@ -1,30 +1,54 @@
-#exhibition.gallery
-	.row
-		.col-xs-2
-			%h3= @exhibition.name
-			%ul.list-unstyled
-				%li= @exhibition.artists.map {|a| a.name}.join(', ')
-				%li= link_to "press release", "#"
-				%li= @exhibition.begins.strftime("%m.%d") + " – " + @exhibition.ends.strftime("%m.%d.%y")
-		.col-xs-8
-			.slides
-				- @pieces.each do |piece|
-					.slide
-						=image_tag piece.image.url(:medium)
-						%p.text-center= piece.artist.try(:name)
-						.desc.text-center=raw piece.description
-	#prev=link_to raw('&#8592;'), '#'
-	#next=link_to raw('&#8594;'), '#'
+#gallery
+  #gallery-header
+    #gallery-header-left
+      %ul.list-inline.list-unstyled
+        %li= @exhibition.name
+        -if @exhibition.artists.size == 1
+          %li= @exhibition.artists.first.name
+        %li=raw date_markup(@exhibition)
+        -if !@exhibition.press_release_url.blank?
+          %li=link_to "press release", @exhibition.press_release_url, target: "_blank"
+    #gallery-header-right
+      = link_to image_tag("close.png"), exhibitions_url, class: "close" 
+  #gallery-slides
+    -@exhibition.safe_piece_order.each do |id|
+      - piece = Piece.find(id)
+      .slide
+        =image_tag piece.image.url(:large), class: 'next'
+        .description
+          %br
+          -if piece.artist.try(:name)
+            =piece.artist.name
+            %br
+          =raw piece.description
+  #prev=link_to raw('&#8592;'), '#'
+  #next.next=link_to raw('&#8594;'), '#'
+  
 
 :javascript
-	$('.slides').cycle({
-		prev: $('#prev'),
-		next: $('#next'),
-		timeout: 0,
-		startingSlide: #{ params[:slide] },
-		before: function(){
-			setTimeout(function(){
-				centerSlides();
-			}, 100);
-		}
-	});
+  $(".slide img").one('load', function() {
+    centerSlide($(this));
+    $(this).animate({
+      opacity: 1, 
+    }, 500);
+  }).each(function() {
+    if(this.complete) $(this).load();
+  });
+
+  $('#gallery-slides').cycle({
+    prev: $('#prev'),
+    next: $('.next'),
+    timeout: 0,
+    slideResize: true,
+    containerResize: true,
+    width: '100%',
+    height: '100%',
+    fit: 1,
+    before: function(currSlideElement, nextSlideElement, options, forwardFlag){
+      setTimeout(function(){
+        centerSlide($(currSlideElement).find("img"));
+        centerSlide($(nextSlideElement).find("img"));
+      }, 50);
+    }
+  });
+  
