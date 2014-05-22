@@ -1,11 +1,11 @@
 #splash
-	#splash-wrap
-		#splash-content
-			=raw date_markup(@exhibition, true)
-			%br
-			= @exhibition.name
-			-unless @exhibition.artists.blank? || @exhibition.artists.count > 3
-				%br
-				&mdash;
-				%br
-				=raw @exhibition.artists.map{ |a| a.name }.join('<br/>')
+  #splash-wrap
+    #splash-content
+      =raw date_markup(@exhibition, true)
+      %br
+      = @exhibition.name
+      -unless @exhibition.artists.blank? || @exhibition.artists.count > 3
+        %br
+        &mdash;
+        %br
+        =raw @exhibition.artists.map{ |a| a.name }.join('<br/>')

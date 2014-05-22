@@ -1,17 +1,18 @@
 !!! 5
 %html
-	%head
-		%title Laurel Gitlen 
-		= stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-		= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-		= javascript_include_tag "application", "data-turbolinks-track" => true
-		= csrf_meta_tags
+  %head
+    %title Laurel Gitlen 
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" }
+    
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
 %body.exterior
-	#wrap
-		=render '/header'
-		#main
-			#inner
-				= yield
-	=render '/footer'  
-	
-	
+  =render '/header'
+  #main
+    #inner
+      = yield
+  =render '/footer'  
+  
+  

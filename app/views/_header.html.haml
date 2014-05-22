@@ -1,13 +1,22 @@
 %header
-  .container
-    .row
-      .col-md-2
-        %h1
-          =link_to image_tag("Laurel-Gitlen_logo.png"), '/'
-      .col-md-8
-        %nav
-          %ul.list-unstyled.list-inline
-            %li=link_to 'Artists', '/artists', class: controller_name == 'artists' ? "active" : ""
-            %li=link_to 'Exhibitions', '/exhibitions', class: controller_name == 'exhibitions' ? "active" : ""
-            %li=link_to 'News', '/news', class: (current_page?('/news') || current_page?('/archives')) ? "active" : ""
-            %li=link_to 'Contact', '/contact', class: current_page?('/contact') ? "active" : ""
+  %nav.navbar.navbar-default{role: "navigation"}
+    .container-fluid
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand Laurel Gitlen
+      / Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li{class: controller_name == 'artists' ? "active" : ""}
+            =link_to 'Artists', '/artists'
+          %li{class: controller_name == 'exhibitions' ? "active" : ""}
+            =link_to 'Exhibitions', '/exhibitions'
+          %li{class: (current_page?('/news') || current_page?('/archives')) ? "active" : ""}
+            =link_to 'News', '/news'
+          %li{class: current_page?('/contact') ? "active" : ""}
+            =link_to 'Contact', '/contact'
