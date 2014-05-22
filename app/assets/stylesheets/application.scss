@@ -165,13 +165,21 @@ header{
 
 
 //--- Splash page ---
+
 #splash{
   width:100%;
   height:100%;
-  padding-top:55px;
   font-family:"relativelg-regular";
   font-size:26px;
   line-height:38px;
+  margin-bottom:-40px;
+  overflow:auto;
+  padding-top:135px;
+  &:after {
+    content: "";
+    display: block;
+    height:40px;
+  }
   @media (min-width: 768px){
     font-size:44px;
     line-height:52px;
@@ -183,7 +191,6 @@ header{
   display:table;
   left:0;
   top:0;
-  margin-top: -20px;
 }
 #splash-wrap{
   display:table-row;

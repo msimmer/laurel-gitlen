@@ -17,8 +17,8 @@
           =image_tag piece.image.url(:large), class: 'next'
           .description
             =raw piece.description
-  #prev=link_to raw('&#8592;'), '#'
-  #next.next=link_to raw('&#8594;'), '#'
+  #prev.xs-hidden=link_to raw('&#8592;'), '#'
+  #next.next.xs-hidden=link_to raw('&#8594;'), '#'
 
 :javascript
   $(".slide img").one('load', function() {
