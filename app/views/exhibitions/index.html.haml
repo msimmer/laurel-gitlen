@@ -10,7 +10,7 @@
               %span.current.hidden-xs current
             .row.exhibition-info
               .col-xs-12.col-sm-4=exhibition.name
-              .col-xs-12.col-sm-4=exhibition.artists.first.try(:name) if exhibition.artists.count == 1
+              .col-xs-12.col-sm-4=exhibition.artists.first.name if exhibition.artists.size == 1
               .col-xs-12.col-sm-4="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
             - unless exhibition.pieces.blank?
               .exhibition-images.image-thumbs
