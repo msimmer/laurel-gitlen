@@ -5,6 +5,10 @@ class Artist < ActiveRecord::Base
 
   scope :on_roster, -> { where(gallery_roster: true) }
   serialize :piece_order
+  
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 
   def safe_piece_order
     begin

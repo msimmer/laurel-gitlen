@@ -3,12 +3,8 @@
     #splash-content
       =raw date_markup(@exhibition, true)
       %br
-      -if @exhibition.piece_order.blank?
-        = @exhibition.name
-      -else
-        = link_to @exhibition.name, exhibition_url(@exhibition, slide: 0), data: {remote: true}
-      
-      -unless @exhibition.artists.blank? || @exhibition.artists.count > 3 || @exhibition.artists.all? { |a| a.name == @exhibition.name }
+      = @exhibition.name
+      -unless @exhibition.artists.blank? || @exhibition.artists.count > 3
         %br
         &mdash;
         %br

@@ -1,22 +1,22 @@
 #exhibitions
-	- @exhibitions_by_year.each do |year, exhibitions|
-		.row
-			.col-xs-2
-				.year=year
-			.col-xs-10
-				-exhibitions.each do |exhibition|
-					.exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?} #{exhibition.pieces.blank? ? 'empty' : 'toggleable'}"}
-						- if exhibition.current?
-							%span.current current
-						.exhibition-info
-							%span=exhibition.name
-							%span=exhibition.artists.first.try(:name) if exhibition.artists.count == 1
-							%span.text-right="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
-						- unless exhibition.pieces.blank?
-							=render 'images', exhibition: exhibition, pieces: exhibition.pieces
+  - @exhibitions_by_year.each do |year, exhibitions|
+    .row
+      .col-sm-2
+        .exhibition-year=year
+      .col-sm-10
+        -exhibitions.each do |exhibition|
+          .exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?} #{exhibition.pieces.blank? ? 'empty' : 'toggleable'}"}
+            - if exhibition.current?
+              %span.current.hidden-xs current
+            .row.exhibition-info
+              .col-xs-12.col-sm-4=exhibition.name
+              .col-xs-12.col-sm-4=exhibition.artists.first.try(:name) if exhibition.artists.count == 1
+              .col-xs-12.col-sm-4="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
+            - unless exhibition.pieces.blank?
+              =render 'images', exhibition: exhibition, pieces: exhibition.pieces
 
 
 :javascript
-	$("img").each( function(){
-		$(this).attr("src", $(this).data("src"));
-	});
+  $("img").each( function(){
+    $(this).attr("src", $(this).data("src"));
+  });
