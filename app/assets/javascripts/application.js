@@ -3,6 +3,7 @@
 //= require jquery.ui.sortable
 //= require s3_direct_upload
 //= require turbolinks
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .
 
 function centerSlides(){
@@ -62,14 +63,6 @@ $(document).on('click', '.get', function(){
     $.get($(this).attr("href"), $(this).serialize(), null, "script");
     return false;
   }
-});
-
-$(document).on('click', '.toggleable .exhibition-info', function(){
-  
-  var panel = $(this).parent().find('.exhibition-images');
-  panel.slideToggle().toggleClass('open');
-  $('.open').not(panel).slideToggle().toggleClass('open')
-  return false;
 });
 
 $(document).on('mouseover', '.artist-link', function(){

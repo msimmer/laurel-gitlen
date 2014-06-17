@@ -17,6 +17,21 @@
 
 
 :javascript
-  $("img").each( function(){
-    $(this).attr("src", $(this).data("src"));
+  var bLazy = new Blazy({
+  success: function(element){
+    setTimeout(function(){
+      var parent = element.parentNode;
+      parent.className = parent.className.replace(/\bloading\b/,'');
+      }, 200);
+    }
   });
+  
+  $('.toggleable .exhibition-info').click( function(){
+  
+    var panel = $(this).parent().find('.exhibition-images');
+    panel.slideToggle().toggleClass('open');
+    $('.open').not(panel).slideToggle().toggleClass('open');
+    bLazy.revalidate();
+    return false;
+  });
+  

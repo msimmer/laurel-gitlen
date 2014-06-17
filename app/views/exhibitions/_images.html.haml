@@ -3,5 +3,11 @@
     .col-sm-6=exhibition.description
   -unless exhibition.pieces.blank?
     -exhibition.safe_piece_order.each_with_index do |id, index|
-      %a{ href: exhibition_url(exhibition, slide: index) }
-        =image_tag("blank.gif", data: { src: pieces.select {|p| p.id == id }.first.image.url(:thumb) })
+      %a{ href: exhibition_url(exhibition, slide: index), class: "image-wrap loading" }
+        - p = pieces.select {|p| p.id == id }.first
+        %img{ |
+          class: "b-lazy", |
+          src:"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", |
+          alt: p.description, |
+          "data-src" => p.image.url(:thumb) |
+        } |
