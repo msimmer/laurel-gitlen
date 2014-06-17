@@ -1,34 +1,33 @@
 #exhibitions
-  - benchmark "The whole things" do
-    - @exhibitions_by_year.each do |year, exhibitions|
-      .row
-        .col-sm-2
-          .exhibition-year=year
-        .col-sm-10
-          - exhibitions.each do |exhibition|
-            - cache(exhibition) do 
-              .exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?} #{exhibition.pieces.blank? ? 'empty' : 'toggleable'}"}
-                - if exhibition.current?
-                  %span.current.hidden-xs current
-                .row.exhibition-info
-                  .col-xs-12.col-sm-4=exhibition.name
-                  .col-xs-12.col-sm-4=exhibition.artists.first.name if exhibition.artists.size == 1
-                  .col-xs-12.col-sm-4="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
-                - unless exhibition.pieces.blank?
-                  .exhibition-images.image-thumbs
-                    .row.exhibition-description
-                      .col-sm-6=exhibition.description
-                    -unless exhibition.pieces.blank?
-                      - pieces = exhibition.pieces.to_a
-                      - exhibition.safe_piece_order.each_with_index do |id, index|
-                        %a{ href: exhibition_url(exhibition, slide: index), class: "image-wrap loading" }
-                          - p = pieces.select {|p| p.id == id }.first
-                          %img{ |
-                            class: "b-lazy", |
-                            src:"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", |
-                            alt: p.description, |
-                            "data-src" => p.image.url(:thumb) |
-                          } |
+  - @exhibitions_by_year.each do |year, exhibitions|
+    .row
+      .col-sm-2
+        .exhibition-year=year
+      .col-sm-10
+        - exhibitions.each do |exhibition|
+          - cache(exhibition) do 
+            .exhibition{class: "#{ 'art-fair' if exhibition.art_fair } #{'current' if exhibition.current?} #{exhibition.pieces.blank? ? 'empty' : 'toggleable'}"}
+              - if exhibition.current?
+                %span.current.hidden-xs current
+              .row.exhibition-info
+                .col-xs-12.col-sm-4=exhibition.name
+                .col-xs-12.col-sm-4=exhibition.artists.first.name if exhibition.artists.size == 1
+                .col-xs-12.col-sm-4="#{exhibition.begins.strftime('%m.%d.%y')}-#{exhibition.ends.strftime('%m.%d.%y')}"
+              - unless exhibition.pieces.blank?
+                .exhibition-images.image-thumbs
+                  .row.exhibition-description
+                    .col-sm-6=exhibition.description
+                  -unless exhibition.pieces.blank?
+                    - pieces = exhibition.pieces.to_a
+                    - exhibition.safe_piece_order.each_with_index do |id, index|
+                      %a{ href: exhibition_url(exhibition, slide: index), class: "image-wrap loading" }
+                        - p = pieces.select {|p| p.id == id }.first
+                        %img{ |
+                          class: "b-lazy", |
+                          src:"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==", |
+                          alt: p.description, |
+                          "data-src" => p.image.url(:thumb) |
+                        } |
 
 
 :javascript
