@@ -45,7 +45,7 @@ class Admin::ExhibitionsController < ApplicationController
   
   protected
   def exhibition_params
-    params.require(:exhibition).permit(:name, :begins, :ends, :description, :art_fair, :artists_ids => [])
+    params.require(:exhibition).permit(:name, :begins, :ends, :description, :art_fair, :current, :artists_ids => [])
   end
   
   def press_release_params

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227005640) do
+ActiveRecord::Schema.define(version: 20140813011105) do
 
   create_table "artists", force: true do |t|
     t.string   "name"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20140227005640) do
     t.integer "story_id",  null: false
   end
 
+  create_table "arts", force: true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "displays", id: false, force: true do |t|
     t.integer "exhibition_id", null: false
     t.integer "piece_id",      null: false
@@ -51,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140227005640) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "art_fair",                      default: false
+    t.boolean  "current",                       default: false
   end
 
   create_table "pieces", force: true do |t|
@@ -67,6 +74,8 @@ ActiveRecord::Schema.define(version: 20140227005640) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "featured"
+    t.integer  "artist_order"
+    t.integer  "exhibition_order"
   end
 
   add_index "pieces", ["artist_id"], name: "index_pieces_on_artist_id"

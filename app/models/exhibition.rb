@@ -2,6 +2,8 @@ class Exhibition < ActiveRecord::Base
   has_and_belongs_to_many :pieces, join_table: :displays
   has_and_belongs_to_many :artists
   
+  after_save :ensure_its_the_only_current
+  
   validates_presence_of :name
 
   serialize :piece_order
@@ -32,6 +34,12 @@ class Exhibition < ActiveRecord::Base
   
   def current?
     self.begins < Date.today && Date.today < self.ends
+  end
+  
+  private
+  
+  def ensure_its_the_only_current
+    self.class.where.not(id: id).update_all(current: false) if current
   end
   
 end

@@ -6,6 +6,10 @@
 		.form-group
 			=f.label :description
 			=f.text_area :description, class: 'form-control'
+		.checkbox
+			%label
+				=f.check_box :current
+				This is the current exhibition
 		.form-group
 			=f.label :begins, 'Date', :id => 'begins_label'
 			=f.date_select :begins, {order: [:month, :day, :year], start_year: 1980}
