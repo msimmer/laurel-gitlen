@@ -44,7 +44,7 @@
     width: '100%',
     height: '100%',
     fit: 1,
-    startingSlide: #{params[:slide]},
+    startingSlide: #{j(params[:slide] || '0')},
     before: function(currSlideElement, nextSlideElement, options, forwardFlag){
       setTimeout(function(){
         centerSlide($(currSlideElement).find("img"));
