@@ -22,3 +22,15 @@
       =link_to "F 212.590.6191", "tel:+12125906191"
   .col-sm-6
     = link_to image_tag('bw_map_lg.png'), "https://www.google.com/maps/place/Laurel+Gitlen/@40.719303,-73.986743,17z/data=!3m1!4b1!4m2!3m1!1s0x89c2598715d95f43:0x6f1d64beff03d10b", target: "_blank"
+
+#signup.row
+  = form_tag "http://ymlp.com/subscribe.php?id=gesheqbgmgw", method: 'POST', target: '_blank', class: 'col-sm-offset-5 col-sm-3', style: "margin-top:25px;" do 
+    %p Fill out your email address to receive our newsletter!
+    .form-group
+      = text_field_tag 'YMP0', nil, class: 'form-control', placeholder: 'Email Address'
+    .form-group
+      = text_field_tag 'YMP1', nil, class: 'form-control', placeholder: 'First Name'
+    .form-group
+      = text_field_tag 'YMP2', nil, class: 'form-control', placeholder: 'Last Name'
+    .form-group
+      = submit_tag 'Submit'
