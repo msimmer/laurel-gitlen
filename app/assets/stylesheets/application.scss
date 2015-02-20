@@ -295,7 +295,7 @@ header{
 #prev{
   position:absolute;
   top:50%;
-  z-index:50;
+  z-index:999;
   left:30px;
   margin-top:20px;
   a:hover{
@@ -306,7 +306,7 @@ header{
   position:absolute;
   top:50%;
   right:30px;
-  z-index:50;
+  z-index:998;
   margin-top:20px;
   a:hover{
     text-decoration:none;
