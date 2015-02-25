@@ -6,7 +6,7 @@
 #canvas
 #random-images
 	-@artists.each do |artist|
-		=image_tag(artist.pieces.featured.sample.image.url(:medium), class: "#{artist.name.gsub(/\s+/, "")}-img", data: {artist: artist.name.gsub(/\s+/, "")}) unless artist.pieces.blank?
+		=image_tag(artist.pieces.featured.sample.image.url(:medium), class: "#{artist.name.gsub(/\s+/, "")}-img", data: {artist: artist.name.gsub(/\s+/, "")}) unless artist.pieces.featured.blank?
 
 :javascript
 	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
