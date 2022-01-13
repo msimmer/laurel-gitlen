@@ -1,12 +1,12 @@
 #splash
   #splash-wrap
     #splash-content
-    - unless @exhibition.nil?
-      =raw date_markup(@exhibition, true)
-      %br
-      = @exhibition.pieces.blank? ? @exhibition.name : link_to(@exhibition.name, exhibition_url(@exhibition ))
-      -unless @exhibition.artists.blank? || @exhibition.artists.count > 3
+      - unless @exhibition.nil?
+        =raw date_markup(@exhibition, true)
         %br
-        &mdash;
-        %br
-        =raw @exhibition.artists.map{ |a| a.name }.join('<br/>')
+        = @exhibition.pieces.blank? ? @exhibition.name : link_to(@exhibition.name, exhibition_url(@exhibition ))
+        -unless @exhibition.artists.blank? || @exhibition.artists.count > 3
+          %br
+          &mdash;
+          %br
+          =raw @exhibition.artists.map{ |a| a.name }.join('<br/>')
