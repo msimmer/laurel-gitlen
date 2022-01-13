@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140813011105) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "artists", force: true do |t|
     t.string   "name"
     t.text     "bio"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20140813011105) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cv_url"
-    t.boolean  "gallery_roster",             default: true
-    t.text     "piece_order",    limit: 255
+    t.boolean  "gallery_roster", default: true
+    t.text     "piece_order"
     t.string   "press_url"
   end
 
@@ -35,12 +38,6 @@ ActiveRecord::Schema.define(version: 20140813011105) do
     t.integer "story_id",  null: false
   end
 
-  create_table "arts", force: true do |t|
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "displays", id: false, force: true do |t|
     t.integer "exhibition_id", null: false
     t.integer "piece_id",      null: false
@@ -51,13 +48,13 @@ ActiveRecord::Schema.define(version: 20140813011105) do
     t.date     "ends"
     t.string   "name"
     t.string   "press_release_url"
-    t.text     "piece_order",       limit: 255
+    t.text     "piece_order"
     t.string   "artist_order"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "art_fair",                      default: false
-    t.boolean  "current",                       default: false
+    t.boolean  "art_fair",          default: false
+    t.boolean  "current",           default: false
   end
 
   create_table "pieces", force: true do |t|
@@ -74,11 +71,9 @@ ActiveRecord::Schema.define(version: 20140813011105) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "featured"
-    t.integer  "artist_order"
-    t.integer  "exhibition_order"
   end
 
-  add_index "pieces", ["artist_id"], name: "index_pieces_on_artist_id"
+  add_index "pieces", ["artist_id"], name: "index_pieces_on_artist_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.text     "story"

@@ -1,5 +1,7 @@
 module ApplicationHelper
   def date_markup(exhibition, line_break=false)
+    return '' if exhibition.nil?
+
     if exhibition.begins.year == exhibition.ends.year
       "#{exhibition.begins.strftime('%m.%d')}&mdash;#{'<br/>' if line_break}#{exhibition.ends.strftime('%m.%d.%y')}"
     else

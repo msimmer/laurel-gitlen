@@ -1,6 +1,7 @@
 #splash
   #splash-wrap
-    #splash-content 
+    #splash-content
+    - unless @exhibition.nil?
       =raw date_markup(@exhibition, true)
       %br
       = @exhibition.pieces.blank? ? @exhibition.name : link_to(@exhibition.name, exhibition_url(@exhibition ))

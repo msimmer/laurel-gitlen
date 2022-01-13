@@ -17,3 +17,10 @@
 
 /public/system
 .DS_Store
+
+
+yarn-debug.log*
+.yarn-integrity
+.env
+
+public/assets/
